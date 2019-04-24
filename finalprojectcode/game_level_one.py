@@ -2,7 +2,7 @@ from Final_project_person_class import *
 from graphics import *
 import time
 
-
+#adding shity\
 #put a background image on the window
 #character moves across the screen to where an npc is instantiated
 #this triggers the dialogue, allowing you to complete the riddle
