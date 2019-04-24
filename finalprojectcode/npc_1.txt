@@ -1,0 +1,30 @@
+AHA! So you are the brave adventurer I have heard so much about!
+I'll help you get through this dungeon, but first, you must help me... 
+Press w to help this farmer
+Press s if you don't care about agriculture workers
+*
+I am a farmer, and my farmland is owned by a local lord. He demands
+I pay rent by the square yard. My plot is bounded on the left by the line
+x equals 0, at the top by the function y equals  6 minus x squared,
+and at the bottom by the function y equals x.
+If he charges three pence per square yard, how much do I owe my landlord?
+w: I figured it out!
+s: Uhh... what?
+*
+Challenging, right? That's why I need your help!
+I figure a brave adventurer such as yourself must
+have picked up some calculus experience along the
+way. I can tell you that I've figured out that the
+top and bottom functions meet at the point (2, 2),
+So we know the bounds of integration at least!
+w: Ok, thanks for the hint
+s: I give up
+*
+No, that doesn't look right at all, perhaps you need
+to hear it again?
+Press w to continue
+*
+Wow! I think you've solved it! How can I ever repay
+you? Oh, right!
+*
+Here's the door! Good luck with your quest!
