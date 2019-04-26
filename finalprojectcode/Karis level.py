@@ -30,6 +30,40 @@ def drawRoom(win):
     block24 = Rectangle(Point(488,255),Point(563,291))
     block25 = Rectangle(Point(488,327),Point(563,363))
 
+    obstacle1 = Polygon(Point(263,400),Point(263,364),Point(338,364),Point(338,327),Point(375,327),Point(375,364),Point(450,364),
+                        Point(450,327),Point(488,327),Point(488,364),Point(563,327),Point(563,364),Point(488,327),Point(488,291),
+                        Point(563,291),Point(563,255),Point(488,255),Point(488,218),Point(563,218),Point(563,182),Point(488,182),
+                        Point(488,145),Point(563,145),Point(563,109),Point(600,109),Point(600,400))
+    obstacle1.setFill("Red")
+    
+    obstacle2 = Polygon(Point(38,72),Point(113,72),Point(113,36),Point(150,36),Point(150,72),Point(225,72),Point(225,109),
+                        Point(150,109),Point(150,145),Point(113,145),Point(113,109),Point(38,109))
+    obstacle2.setFill("idk gray")
+    
+    obstacle4 = Circle(Point(244,273),15)
+    obstacle4.setFill("Black")
+    
+    obstacle5 = Circle(Point(131,346),15)
+    obstacle5.setFIll("blue-grey")
+    
+    obstacle8_1 = Rectangle(Point(183,224),Point(232,231))
+    obstacle8_2 = Rectangle(Point(180,231),Point(235,149))
+    obstacle8_1.setFill("Black")
+    obstacle8_2.setFill("Black")
+
+    obstacle10 = Circle(Point(300,309),17)
+    obstacle10.setFill("Green")
+    
+    obstacle13 = Polygon(Point(0,182),Point(38,182),Point(38,218),Point(113,218),Point(113,255),Point(38,255),Point(38,291),
+                         Point(113,291),Point(113,327),Point(38,327),Point(38,363),Point(0,363))
+    obstacle13.setFill("Blue")
+    
+    obstacle14 = Rectangle(Point(263,72),Point(338,109))
+    obstacle14.setFill("Green")
+    
+    obstacle15 = Circle(Point(310,166),13)
+    obstacle15.setFill("Black")
+        
     block1.setFill("Gray")
     block2.setFill("Gray")
     block3.setFill("Gray")
