@@ -393,10 +393,405 @@ class Cutie(Person):
 ##        self.mouth.move( dx, dy )
 
 class Mini(Person):
-    def __init__():
-        super().__init__()
-        
+    def __init__(self, name, position, win):
+        #super().__init__(name, position, win)
 
+        #head
+        p1 = Point(position.getX()+12, position.getY()-25)
+        p2 = Point(position.getX()-12, position.getY()-5)
+        self.head = Rectangle(p1,p2)
+        self.head.setFill("Peru")
+
+        #arms
+        p1 = Point(position.getX()+25, position.getY()-5)
+        p2 = Point(position.getX()-25, position.getY()+25)
+        self.arms = Rectangle(p1,p2)
+        self.arms.setFill("Red")
+
+        #legs
+        p1 = Point(position.getX()+15, position.getY()+25)
+        p2 = Point(position.getX()-15, position.getY()+55)
+        self.legs = Rectangle(p1,p2)
+        self.legs.setFill("Navy")
+        
+        #pits
+        p1 = Point(position.getX()+15, position.getY()+25)
+        p2 = Point(position.getX()+15, position.getY()+5)
+        p3 = Point(position.getX()-15, position.getY()+25)
+        p4 = Point(position.getX()-15, position.getY()+5)
+        self.rightPit = Line(p1,p2)
+        self.leftPit = Line(p3,p4)
+
+
+        #crotch
+        p1 = Point(position.getX(), position.getY()+35)
+        p2 = Point(position.getX(), position.getY()+55)
+        self.crotch = Line(p1,p2)
+
+        #shirt
+        p1 = Point(position.getX()-8, position.getY()-5)
+        p2 = Point(position.getX()+8, position.getY()+25)
+        self.shirt = Rectangle(p1,p2)
+        self.shirt.setFill("White")
+        
+    def draw(self, win):
+        self.head.draw(win)
+        self.arms.draw(win)
+        self.legs.draw(win)
+        self.rightPit.draw(win)
+        self.leftPit.draw(win)
+        self.crotch.draw(win)
+        self.shirt.draw(win)
+##        self.rightEye.draw(win)
+##        self.leftEye.draw(win)
+##        self.rpupil.draw(win)
+##        self.lpupil.draw(win)
+##        self.mouth.draw(win)
+    def move( self , dx, dy, win):
+        key = win.getKey()
+        if key == "d":
+            self.head.move( dx, 0 )
+            self.arms.move( dx, 0 )
+            self.legs.move( dx, 0 )
+            self.rightPit.move( dx, 0 )
+            self.leftPit.move( dx, 0 )
+            self.crotch.move( dx, 0 )
+            self.shirt.move( dx, 0 )
+
+        if key == "a":
+            self.head.move( -dx, 0 )
+            self.arms.move( -dx, 0 )
+            self.legs.move( -dx, 0 )
+            self.rightPit.move( -dx, 0 )
+            self.leftPit.move( -dx, 0 )
+            self.crotch.move( -dx, 0 )
+            self.shirt.move( -dx, 0 )
+
+        if key == "s":
+            self.head.move( 0, dy )
+            self.arms.move( 0, dy )
+            self.legs.move( 0, dy )
+            self.rightPit.move( 0, dy )
+            self.leftPit.move( 0, dy )
+            self.crotch.move( 0, dy )
+            self.shirt.move( 0, dy )
+
+        if key == "w":
+            self.head.move( 0, -dy )
+            self.arms.move( 0, -dy )
+            self.legs.move( 0, -dy )
+            self.rightPit.move( 0, -dy )
+            self.leftPit.move( 0, -dy )
+            self.crotch.move( 0, -dy )
+            self.shirt.move( 0, -dy )
+        
+class bittyBro(Person):
+    def __init__(self, name, position, win):
+        self.position = position
+
+        #head
+        p1 = Point(position.getX()-5, position.getY()-7)
+        p2 = Point(position.getX()+5, position.getY()-15)
+        self.head = Rectangle(p1,p2)
+        self.head.setFill("Peru")
+
+        #arms
+        p1 = Point(position.getX()-10, position.getY()-7)
+        p2 = Point(position.getX()+10, position.getY()+4)
+        self.arms = Rectangle(p1,p2)
+        self.arms.setFill("Red")
+
+        #legs
+        p1 = Point(position.getX()-6, position.getY()+4)
+        p2 = Point(position.getX()+6, position.getY()+15)
+        self.legs = Rectangle(p1,p2)
+        self.legs.setFill("Navy")
+
+        #crotch
+        p1 = Point(position.getX(), position.getY()+15)
+        p2 = Point(position.getX(), position.getY()+8)
+        self.crotch = Line(p1,p2)
+
+        #pits
+        p1 = Point(position.getX()-6, position.getY()+4)
+        p2 = Point(position.getX()-6, position.getY()-3)
+        p3 = Point(position.getX()+6, position.getY()-3)
+        p4 = Point(position.getX()+6, position.getY()+4)
+        self.rightPit = Line(p1,p2)
+        self.leftPit = Line(p3,p4)
+
+        #shirt
+        p1 = Point(position.getX()+3, position.getY()-7)
+        p2 = Point(position.getX()-3, position.getY()+4)
+        self.shirt = Rectangle(p1,p2)
+        self.shirt.setFill("White")
+
+    def draw(self, win):
+        self.head.draw(win)
+        self.arms.draw(win)
+        self.legs.draw(win)
+        self.rightPit.draw(win)
+        self.leftPit.draw(win)
+        self.crotch.draw(win)
+        self.shirt.draw(win)
+
+    def move( self , dx, dy, win ):
+        key = win.getKey()
+        if key == "d":
+            self.head.move( dx, 0 )
+            self.arms.move( dx, 0 )
+            self.legs.move( dx, 0 )
+            self.rightPit.move( dx, 0 )
+            self.leftPit.move( dx, 0 )
+            self.crotch.move( dx, 0 )
+            self.shirt.move( dx, 0 )
+        if key == "a":
+            self.head.move( -dx, 0 )
+            self.arms.move( -dx, 0 )
+            self.legs.move( -dx, 0 )
+            self.rightPit.move( -dx, 0 )
+            self.leftPit.move( -dx, 0 )
+            self.crotch.move( -dx, 0 )
+            self.shirt.move( -dx, 0 )
+        if key == "s":
+            self.head.move( 0, dy )
+            self.arms.move( 0, dy )
+            self.legs.move( 0, dy )
+            self.rightPit.move( 0, dy )
+            self.leftPit.move( 0, dy )
+            self.crotch.move( 0, dy )
+            self.shirt.move( 0, dy )
+        if key == "w":
+            self.head.move( 0, -dy )
+            self.arms.move( 0, -dy )
+            self.legs.move( 0, -dy )
+            self.rightPit.move( 0, -dy )
+            self.leftPit.move( 0, -dy )
+            self.crotch.move( 0, -dy )
+            self.shirt.move( 0, -dy )
+    
+    def moveKarisLevel( self , dx, dy, win ):
+        key = win.getKey()
+        if key == "d":
+            if 25 < self.arms.getCenter().getX() < 31 and ( 36 < self.arms.getCenter().getY()+1.5 < 145 ):
+                if 25 < self.arms.getCenter().getX() < 31 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
+                    msg = Text(Point(300,350), "Boundary #2")
+                    msg.draw(win)
+                return None
+            elif 137 < self.arms.getCenter().getX() < 143 and ( 145 < self.arms.getCenter().getY()+1.5 < 291 ):
+                if 137 < self.arms.getCenter().getX() < 143 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+                    msg = Text(Point(300,350), "Boundary #16")
+                    msg.draw(win)
+                elif 137 < self.arms.getCenter().getX() < 143 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
+                    msg = Text(Point(300,350), "Boundary #8")
+                    msg.draw(win)
+                return None
+            elif 250 < self.arms.getCenter().getX() < 256 and ( self.arms.getCenter().getY()+1.5 < 218 ):
+                if 250 < self.arms.getCenter().getX() < 256 and ( self.arms.getCenter().getY()+1.5 < 36 ):
+                    msg = Text(Point(300,350), "Boundary #20")
+                    msg.draw(win)
+                elif 250 < self.arms.getCenter().getX() < 256 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
+                    msg = Text(Point(300,350), "Boundary #14")
+                    msg.draw(win)
+                elif 250 < self.arms.getCenter().getX() < 256 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+                    msg = Text(Point(300,350), "Boundary #18")
+                    msg.draw(win)
+                  return None
+            elif 250 < self.arms.getCenter().getX() < 256 and ( 291 < self.arms.getCenter().getY()+1.5 ):
+                if 250 < self.arms.getCenter().getX() < 256 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
+                    msg = Text(Point(300,350), "Boundary #10")
+                    msg.draw(win)
+                elif 250 < self.arms.getCenter().getX() < 256 and ( 363 < self.arms.getCenter().getY()+1.5 ):
+                    msg = Text(Point(300,350), "Boundary #10")
+                    msg.draw(win)
+                return None
+            elif 362 < self.arms.getCenter().getX() < 368 and ( 109 < self.arms.getCenter().getY()+1.5 < 145 ):
+                return None
+            elif 362 < self.arms.getCenter().getX() < 368 and ( 218 < self.arms.getCenter().getY()+1.5 < 291 ):
+                if 362 < self.arms.getCenter().getX() < 368 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
+                    msg = Text(Point(300,350), "Boundary #17")
+                    msg.draw(win)
+                return None
+            elif 475 < self.arms.getCenter().getX() < 481 and ( 145 < self.arms.getCenter().getY()+1.5 < 327 ):
+                if 475 < self.arms.getCenter().getX() < 481 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+                    msg = Text(Point(300,350), "Boundary #1")
+                    msg.draw(win)
+                elif 475 < self.arms.getCenter().getX() < 481 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
+                    msg = Text(Point(300,350), "Boundary #1")
+                    msg.draw(win)
+                elif 475 < self.arms.getCenter().getX() < 481 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
+                    msg = Text(Point(300,350), "Boundary #1")
+                    msg.draw(win)
+                return None
+            elif 587 < self.arms.getCenter().getX() < 593 and ( self.arms.getCenter().getY()+1.5 < 145 ):
+                return None
+            else:
+                self.head.move( dx, 0 )
+                self.arms.move( dx, 0 )
+                self.legs.move( dx, 0 )
+                self.rightPit.move( dx, 0 )
+                self.leftPit.move( dx, 0 )
+                self.crotch.move( dx, 0 )
+                self.shirt.move( dx, 0 )
+        if key == "a":
+            if 7 < self.arms.getCenter().getX() < 13 and ( 15 < self.arms.getCenter().getY()+1.5 < 182 ):
+                return None
+            elif 7 < self.arms.getCenter().getX() < 13 and ( 363 < self.arms.getCenter().getY()+1.5 < 400 ):
+                return None
+            elif 120 < self.arms.getCenter().getX() < 126 and ( 182 < self.arms.getCenter().getY()+1.5 < 327 ):
+                if 120 < self.arms.getCenter().getX() < 126 and ( 218 < self.arms.getCenter().getY()+1.5 < 225 ):
+                    msg = Text(Point(300,350), "Boundary #13")
+                    msg.draw(win)
+                elif 120 < self.arms.getCenter().getX() < 126 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
+                    msg = Text(Point(300,350), "Boundary #13")
+                    msg.draw(win)
+                return None
+            elif 232 < self.arms.getCenter().getX() < 238 and ( 36 < self.arms.getCenter().getY()+1.5 < 255 ):
+                if 232 < self.arms.getCenter().getX() < 238 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+                    msg = Text(Point(300,350), "Boundary #8")
+                    msg.draw(win)
+                elif 232 < self.arms.getCenter().getX() < 238 and ( 218 < self.arms.getCenter().getY()+1.5 < 225 ):
+                    msg = Text(Point(300,350), "Boundary #16")
+                    msg.draw(win)
+                return None
+            elif 345 < self.arms.getCenter().getX() < 351 and ( 72 < self.arms.getCenter().getY()+1.5 < 182 ):
+                if 345 < self.arms.getCenter().getX() < 351 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
+                    msg = Text(Point(300,350), "Boundary #14")
+                    msg.draw(win)
+                elif 345 < self.arms.getCenter().getX() < 351 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+                    msg = Text(Point(300,350), "Boundary #18")
+                    msg.draw(win)
+                return None
+            elif 345 < self.arms.getCenter().getX() < 351 and ( 255 < self.arms.getCenter().getY()+1.5 < 327 ):
+                if 345 < self.arms.getCenter().getX() < 351 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
+                    msg = Text(Point(300,350), "Boundary #10")
+                    msg.draw(win)
+                return None
+            elif 437 < self.arms.getCenter().getX() < 443 and ( 182 < self.arms.getCenter().getY()+1.5 < 291 ):
+                if 437 < self.arms.getCenter().getX() < 443 and ( 218 < self.arms.getCenter().getY()+1.5 < 226 ):
+                    msg = Text(Point(300,350), "Boundary #17")
+                    msg.draw(win)
+                return None
+            elif 570 < self.arms.getCenter().getX() < 576 and (  self.arms.getCenter().getY()+1.5 < 72 ):
+                if 570 < self.arms.getCenter().getX() < 576 and ( self.arms.getCenter().getY()+1.5 < 36 ):
+                    msg = Text(Point(300,350), "Boundary #18")
+                    msg.draw(win)
+                return None
+
+            else:
+                self.head.move( -dx, 0 )
+                self.arms.move( -dx, 0 )
+                self.legs.move( -dx, 0 )
+                self.rightPit.move( -dx, 0 )
+                self.leftPit.move( -dx, 0 )
+                self.crotch.move( -dx, 0 )
+                self.shirt.move( -dx, 0 )
+        if key == "s":
+            if 18 < self.arms.getCenter().getY()+1.5 < 24 and ( 38 < self.arms.getCenter().getX() < 225 ):
+                if 18 < self.arms.getCenter().getY()+1.5 < 24 and ( 113 < self.arms.getCenter().getX() < 150 ):
+                    msg = Text(Point(300,350), "Boundary #2")
+                    msg.draw(win)
+                return None
+            elif 91 < self.arms.getCenter().getY()+1.5 < 95 and ( self.arms.getCenter().getX() > 375 ):
+                if 91 < self.arms.getCenter().getY()+1.5 < 95 and ( 563 < self.arms.getCenter().getX() ):
+                    msg = Text(Point(300,350), "Boundary #1")
+                    msg.draw(win)
+                elif 91 < self.arms.getCenter().getY()+1.5 < 95 and ( 450 < self.arms.getCenter().getX < 488 ):
+                    msg = Text(Point(300,350), "Boundary #15")
+                    msg.draw(win)
+                return None
+            elif 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( self.arms.getCenter().getX() < 113 ):
+                if 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( self.arms.getCenter().getX() < 38 ):
+                    msg = Text(Point(300,350), "Boundary #13")
+                    msg.draw(win)
+                return None
+            elif 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( 338 < self.arms.getCenter().getX() < 450 ):
+                if 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( 338 < self.arms.getCenter().getX() < 375 ):
+                    msg = Text(Point(300,350), "Boundary #19")
+                    msg.draw(win)
+                return None
+            elif 237 < self.arms.getCenter().getY()+1.5 < 243 and ( 225 < self.arms.getCenter().getX() < 338 ):
+                if 237 < self.arms.getCenter().getY()+1.5 < 243 and ( 225 < self.arms.getCenter().getX() < 263 ):
+                    msg = Text(Point(300,350), "Boundary #4")
+                    msg.draw(win)
+                return None
+            elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 113 < self.arms.getCenter().getX() < 225 ):
+                if 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 113 < self.arms.getCenter().getX() < 150 ):
+                    msg = Text(Point(300,350), "Boundary #5")
+                    msg.draw(win)
+                return None
+            elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 338 < self.arms.getCenter().getX() < 488 ):
+                if 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 450 < self.arms.getCenter().getX() < 488 ):
+                    msg = Text(Point(300,350), "Boundary #20")
+                    msg.draw(win)
+                elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 338 < self.arms.getCenter().getX() < 375 ):
+                    msg = Text(Point(300,350), "Boundary #20")
+                    msg.draw(win)
+                return None
+            elif 382 < self.arms.getCenter().getY()+1.5 < 388 and ( self.arms.getCenter().getX() < 263 ):
+                return None
+            
+            else:
+                self.head.move( 0, dy )
+                self.arms.move( 0, dy )
+                self.legs.move( 0, dy )
+                self.rightPit.move( 0, dy )
+                self.leftPit.move( 0, dy )
+                self.crotch.move( 0, dy )
+                self.shirt.move( 0, dy )
+        if key == "w":
+            print(self.arms.getCenter().getY())
+            print(self.arms.getCenter().getX())
+
+            if 69 < self.arms.getCenter().getY()+1.5 < 75 and ( 338 < self.arms.getCenter().getX() < 563 ):
+                if 69 < self.arms.getCenter().getY()+1.5 < 75 and ( 338 < self.arms.getCenter().getX() < 375 ):
+                    msg = Text(Point(300,350), "Boundary #20")
+                    msg.draw(win)
+                elif 69 < self.arms.getCenter().getY()+1.5 < 75 and ( 450 < self.arms.getCenter().getX() < 488 ):
+                    msg = Text(Point(300,350), "Boundary #20")
+                    msg.draw(win)
+                return None
+            elif 12 < self.arms.getCenter().getY()+1.5 < 18 and ( self.arms.getCenter().getX() < 263 ):
+                return None
+            elif 12 < self.arms.getCenter().getY()+1.5 < 18 and ( self.arms.getCenter().getX() > 563 ):
+                return None
+            elif 142 < self.arms.getCenter().getY()+1.5 < 148 and ( self.arms.getCenter().getX() > 375 ):
+                if 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 338 < self.arms.getCenter().getX() < 375 ):
+                    msg = Text(Point(300,350), "Boundary #15")
+                    msg.draw(win)                
+                return None
+            elif 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 38 < self.arms.getCenter().getX() < 150 ):
+                if 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 113 < self.arms.getCenter().getX() < 150 ):
+                    msg = Text(Point(300,350), "Boundary #2")
+                    msg.draw(win)
+                return None
+            elif 215 < self.arms.getCenter().getY()+1.5 < 221 and ( 263 < self.arms.getCenter().getX() < 375 ):
+                if 215 < self.arms.getCenter().getY()+1.5 < 221 and ( 338 < self.arms.getCenter().getX() < 375 ):
+                    msg = Text(Point(300,350), "Boundary #19")
+                    msg.draw(win)
+                return None
+            elif 288 < self.arms.getCenter().getY()+1.5 < 294 and ( 150 < self.arms.getCenter().getX() < 263 ):
+                if 288 < self.arms.getCenter().getY()+1.5 < 294 and ( 225 < self.arms.getCenter().getX() < 263 ):
+                    msg = Text(Point(300,350), "Boundary #4")
+                    msg.draw(win)
+                return None
+            elif 288 < self.arms.getCenter().getY()+1.5 < 294 and ( 375 < self.arms.getCenter().getX() < 450 ):
+                return None
+            elif 360 < self.arms.getCenter().getY()+1.5 < 366 and (  self.arms.getCenter().getX() < 255 ):
+                if 360 < self.arms.getCenter().getY()+1.5 < 366 and ( self.arms.getCenter().getX() < 38 ):
+                    msg = Text(Point(300,350), "Boundary #13")
+                    msg.draw(win)
+                return None
+            else:
+                self.head.move( 0, -dy )
+                self.arms.move( 0, -dy )
+                self.legs.move( 0, -dy )
+                self.rightPit.move( 0, -dy )
+                self.leftPit.move( 0, -dy )
+                self.crotch.move( 0, -dy )
+                self.shirt.move( 0, -dy )
+        
+        
 def main():
     bose = True
     win = GraphWin("WALL",600,400)
