@@ -63,7 +63,9 @@ def drawRoom(win):
     
     obstacle15 = Circle(Point(310,166),13)
     obstacle15.setFill("Black")
-        
+    
+    obstacle16 =Rectangle(Point(),Point())
+    
     block1.setFill("Gray")
     block2.setFill("Gray")
     block3.setFill("Gray")
