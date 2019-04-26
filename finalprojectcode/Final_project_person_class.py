@@ -781,6 +781,8 @@ class bittyBro(Person):
                 if 360 < self.arms.getCenter().getY()+1.5 < 366 and ( self.arms.getCenter().getX() < 38 ):
                     msg = Text(Point(300,350), "Boundary #13")
                     msg.draw(win)
+                    win.getMouse()
+                    msg.undraw()
                 return None
             else:
                 self.head.move( 0, -dy )
@@ -790,8 +792,13 @@ class bittyBro(Person):
                 self.leftPit.move( 0, -dy )
                 self.crotch.move( 0, -dy )
                 self.shirt.move( 0, -dy )
-        
-        
+        if key == "b" :
+            if 345 < self.arms.getCenter().getX() < 351 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
+                msg = Text(Point(300,350), "Yes there sure is a bee there! Would you like to pet it? (y/n)")
+                if key == "y":
+                    msg = Text(Point(300,350),"You corner the bee inside to bush and give it a nice little pat, but suddenly you see something shiny behind it. \n It's a can of shaving cream! you pick it up.")
+
+                
 def main():
     bose = True
     win = GraphWin("WALL",600,400)
