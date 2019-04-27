@@ -1,0 +1,51 @@
+def throneRoom(win):
+    throne_room = Image(Point(400, 320), "throne_room.gif")
+    throne_room.draw(win)
+    hero = Player("questa", Point(800, 500), win)
+    hero.draw(win)
+    king = King("tim", Point(400, 400), win)
+    king.draw(win)
+    zenith = Cutie("Zenith", Point(200, 400), win)
+    zenith.draw(win)
+    file = open( "king_dialogue.txt", "r")
+    text = file.read()
+    text_list = text.split("*")
+    dialogue = Text(Point(600, 700), text_list[0])
+    dialogue.draw(win)
+    player_input = win.getKey()
+    dialogue.undraw()
+    dialogue = Text(Point(600, 700), text_list[1])
+    dialogue.setSize(20)
+    dialogue.draw(win)
+    player_input = win.getKey()
+    dialogue.undraw()
+    dialogue = Text(Point(600, 700), """press y to kill the king and run
+press n to surrender""")
+    dialogue.setSize(18)
+    dialogue.draw(win)
+    player_input = win.getKey()
+    dialogue.undraw()
+    if player_input == "y":
+        king.undraw()
+        moving = True
+        while moving == True:
+            hero.move(40, 40, win)
+            if hero.arms.getCenter().getX() < 400 and hero.arms.getCenter().getY() < 700:
+                moving = False
+        winning_message = Text(Point(400, 300), "You rescued me! Let's get outta here!\n press Space to continue")
+        winning_message.draw(win)
+        player_input = win.getkey()
+        throne_room.undraw()
+        zenith.undraw()
+        hero.undraw()
+        congratulations = Text(500, 400, """Congratulations!
+You journeyed into adventure and survived!""")
+        congratulations.draw(win)
+    elif player_input == "n":
+        throne_room.undraw()
+        hero.undraw()
+        zenith.undraw()
+        king.undraw()
+        losing_message = Text(Point(500, 400), "Game Over")
+        losing_message.setSize(25)
+        losing_message.draw(win)
