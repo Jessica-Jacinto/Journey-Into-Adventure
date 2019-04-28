@@ -1,5 +1,5 @@
 from graphics import *
-from Final_project_person_class import bittyBro
+from Final_project_person_class import *
 from random import *
 
 
@@ -31,23 +31,23 @@ def drawRoom(win):
     block25 = Rectangle(Point(488,327),Point(563,363))
 
     obstacle1 = Polygon(Point(263,400),Point(263,364),Point(338,364),Point(338,327),Point(375,327),Point(375,364),Point(450,364),
-                        Point(450,327),Point(488,327),Point(488,364),Point(563,327),Point(563,364),Point(488,327),Point(488,291),
+                        Point(450,327),Point(488,327),Point(488,364),Point(563,364),Point(563,327),Point(488,327),Point(488,291),
                         Point(563,291),Point(563,255),Point(488,255),Point(488,218),Point(563,218),Point(563,182),Point(488,182),
                         Point(488,145),Point(563,145),Point(563,109),Point(600,109),Point(600,400))
     obstacle1.setFill("Red")
     
     obstacle2 = Polygon(Point(38,72),Point(113,72),Point(113,36),Point(150,36),Point(150,72),Point(225,72),Point(225,109),
                         Point(150,109),Point(150,145),Point(113,145),Point(113,109),Point(38,109))
-    obstacle2.setFill("idk gray")
+    obstacle2.setFill("Orange") #fix color
     
     obstacle4 = Circle(Point(244,273),15)
     obstacle4.setFill("Black")
     
     obstacle5 = Circle(Point(131,346),15)
-    obstacle5.setFIll("blue-grey")
+    obstacle5.setFill("Black")#fix color
     
-    obstacle8_1 = Rectangle(Point(183,224),Point(232,231))
-    obstacle8_2 = Rectangle(Point(180,231),Point(235,149))
+    obstacle8_1 = Rectangle(Point(191,223),Point(185,233))
+    obstacle8_2 = Rectangle(Point(195,233),Point(181,249))
     obstacle8_1.setFill("Black")
     obstacle8_2.setFill("Black")
 
@@ -61,10 +61,22 @@ def drawRoom(win):
     obstacle14 = Rectangle(Point(263,72),Point(338,109))
     obstacle14.setFill("Green")
     
-    obstacle15 = Circle(Point(310,166),13)
+    obstacle15 = Circle(Point(469,127),13)
     obstacle15.setFill("Black")
     
-    obstacle16 =Rectangle(Point(),Point())
+    obstacle16 =Rectangle(Point(167,149),Point(208,182))
+    obstacle16.setFill("SaddleBrown")
+
+    obstacle17 = miniMime("Buddy",Point(411,237),win)
+    
+
+    obstacle18 = theRock("Dwayne",Point(298,164),win)
+
+    obstacle19 = Circle(Point(200,357),15)
+    obstacle19.setFill("DarkSlateGray")
+
+    obstacle20 = Rectangle(Point(263,0),Point(563,72))
+    obstacle20.setFill("Tomato")
     
     block1.setFill("Gray")
     block2.setFill("Gray")
@@ -91,6 +103,22 @@ def drawRoom(win):
     block23.setFill("Gray")
     block24.setFill("Gray")
     block25.setFill("Gray")
+
+    obstacle1.draw(win)
+    obstacle2.draw(win)
+    obstacle4.draw(win)
+    obstacle5.draw(win)
+    obstacle8_1.draw(win)
+    obstacle8_2.draw(win)
+    obstacle10.draw(win)
+    obstacle13.draw(win)
+    obstacle14.draw(win)
+    obstacle15.draw(win)
+    obstacle16.draw(win)
+    obstacle17.draw(win)
+    obstacle18.draw(win)
+    obstacle19.draw(win)
+    obstacle20.draw(win)
 
     
     block1.draw(win)
@@ -139,13 +167,13 @@ def main():
     drawRoom(win)
     tom.draw(win)
 
-    key = win.getKey()
-    if key == "p" : 
-        truth = False
-    elif 38<tom.getX()<113 and 36<tom.getY()<72 and key == d:
-        truth = False
-    else:
-        truth = True
+##    key = win.getKey()
+##    if key == "p" : 
+##        truth = False
+##    elif 38<tom.getX()<113 and 36<tom.getY()<72 and key == d:
+##        truth = False
+##    else:
+##        truth = True
     while truth == True:
         tom.moveKarisLevel(6,6,win)
 main()
