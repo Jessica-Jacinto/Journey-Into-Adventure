@@ -147,18 +147,165 @@ def drawRoom(win):
     block24.draw(win)
     block25.draw(win)
 
-def checkurself(win):
-    block = Rectangle(Point(5,5),Point(595,395))
-    block.draw(win)
-    x=randint(0,600)
-    y=randint(0,400)
-    point = Point(x,y)
+def puzzle():
+    win = GraphWin("Maze",550,550)
     
-    if 5<=point.getX()<=595 and 5<=point.getY()<=395:
-        print("yeah dude")
-    else:
-        print("you stink loser. \nFry, pizza goin out, CMAHN!!!")
+    line1 = Line(Point(50,0),Point(50,550))
+    line2 = Line(Point(100,0),Point(100,550))
+    line3 = Line(Point(150,0),Point(150,550))
+    line4 = Line(Point(200,0),Point(200,550))
+    line5 = Line(Point(250,0),Point(250,550))
+    line6 = Line(Point(300,0),Point(300,550))
+    line7 = Line(Point(350,0),Point(350,550))
+    line8 = Line(Point(400,0),Point(400,550))
+    line9 = Line(Point(450,0),Point(450,550))
+    line10 = Line(Point(500,0),Point(500,550))
+    line11 = Line(Point(0,50),Point(550,50))
+    line12 = Line(Point(0,100),Point(550,100))
+    line13 = Line(Point(0,150),Point(550,150))
+    line14 = Line(Point(0,200),Point(550,200))
+    line15 = Line(Point(0,250),Point(550,250))
+    line16 = Line(Point(0,300),Point(550,300))
+    line17 = Line(Point(0,350),Point(550,350))
+    line18 = Line(Point(0,400),Point(550,400))
+    line19 = Line(Point(0,450),Point(550,450))
+    line20 = Line(Point(0,500),Point(550,500))
 
+    line1.draw(win)
+    line2.draw(win)
+    line3.draw(win)
+    line4.draw(win)
+    line5.draw(win)
+    line6.draw(win)
+    line7.draw(win)
+    line8.draw(win)
+    line9.draw(win)
+    line10.draw(win)
+    line11.draw(win)
+    line12.draw(win)
+    line13.draw(win)
+    line14.draw(win)
+    line15.draw(win)
+    line16.draw(win)
+    line17.draw(win)
+    line18.draw(win)
+    line19.draw(win)
+    line20.draw(win)
+
+    done = False
+    locations = []
+    for i in range(49):
+        location = win.getMouse()
+        point = Circle(loc,5)
+        locations.append(location)
+        
+    good_spots = []
+    
+    if 500 < location[0].getX() < 550 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 500 < location[1].getX() < 550 and 50 < location[0].getY() < 100:
+        good_spots.append(True)
+    if 500 < location[2].getX() < 550 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 450 < location[3].getX() < 500 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 400 < location[4].getX() < 450 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 350 < location[5].getX() < 400 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 300 < location[6].getX() < 350 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 300 < location[7].getX() < 350 and 150 < location[0].getY() < 200:
+        good_spots.append(True)
+    if 300 < location[8].getX() < 350 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 350 < location[9].getX() < 400 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 400 < location[10].getX() < 450 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 400 < location[11].getX() < 450 and 250 < location[0].getY() < 300:
+        good_spots.append(True)
+    if 400 < location[12].getX() < 450 and 300 < location[0].getY() < 350:
+        good_spots.append(True)
+    if 400 < location[13].getX() < 450 and 350 < location[0].getY() < 400:
+        good_spots.append(True)
+    if 400 < location[14].getX() < 450 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 350 < location[15].getX() < 400 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 300 < location[16].getX() < 350 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 300 < location[17].getX() < 350 and 350 < location[0].getY() < 400:
+        good_spots.append(True)
+    if 300 < location[18].getX() < 350 and 300 < location[0].getY() < 350:
+        good_spots.append(True)
+    if 250 < location[19].getX() < 300 and 300 < location[0].getY() < 350:
+        good_spots.append(True)
+    if 200 < location[20].getX() < 250 and 300 < location[0].getY() < 350:
+        good_spots.append(True)
+    if 200 < location[21].getX() < 250 and 250 < location[0].getY() < 300:
+        good_spots.append(True)
+    if 200 < location[22].getX() < 250 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 200 < location[23].getX() < 250 and 150 < location[0].getY() < 200:
+        good_spots.append(True)
+    if 200 < location[24].getX() < 250 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 200 < location[25].getX() < 250 and 50 < location[0].getY() < 100:
+        good_spots.append(True)
+    if 200 < location[26].getX() < 250 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 150 < location[27].getX() < 200 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 100 < location[28].getX() < 150 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 50 < location[29].getX() < 100 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 0 < location[30].getX() < 50 and 0 < location[0].getY() < 50:
+        good_spots.append(True)
+    if 0 < location[31].getX() < 50 and 50 < location[0].getY() < 100:
+        good_spots.append(True)
+    if 0 < location[32].getX() < 50 and 100 < location[0].getY() < 150:
+        good_spots.append(True)
+    if 0 < location[33].getX() < 50 and 150 < location[0].getY() < 200:
+        good_spots.append(True)
+    if 0 < location[34].getX() < 50 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 50 < location[35].getX() < 100 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 100 < location[36].getX() < 150 and 200 < location[0].getY() < 250:
+        good_spots.append(True)
+    if 100 < location[37].getX() < 150 and 250 < location[0].getY() < 300:
+        good_spots.append(True)
+    if 100 < location[38].getX() < 150 and 300 < location[0].getY() < 350:
+        good_spots.append(True)
+    if 100 < location[39].getX() < 150 and 350 < location[0].getY() < 400:
+        good_spots.append(True)
+    if 100 < location[40].getX() < 150 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 150 < location[41].getX() < 200 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 200 < location[42].getX() < 250 and 400 < location[0].getY() < 450:
+        good_spots.append(True)
+    if 200 < location[43].getX() < 250 and 450 < location[0].getY() < 500:
+        good_spots.append(True)
+    if 200 < location[44].getX() < 250 and 500 < location[0].getY() < 550:
+        good_spots.append(True)
+    if 150 < location[45].getX() < 200 and 500 < location[0].getY() < 550:
+        good_spots.append(True)
+    if 100 < location[46].getX() < 150 and 0 < location[0].getY() < 550:
+        good_spots.append(True)
+    if 50 < location[47].getX() < 100 and 0 < location[0].getY() < 550:
+        good_spots.append(True)
+    if 0 < location[48].getX() < 50 and 0 < location[0].getY() < 550:
+        good_spots.append(True)
+            
+    if len(good_spots) == 49:
+        message = Text(Point(275,450),"Correct!")
+        message.setFill("White")
+        message.draw(win)
+        
+        
 def main():
     truth = True
     win = GraphWin("boogies",600,400)
@@ -167,13 +314,6 @@ def main():
     drawRoom(win)
     tom.draw(win)
 
-##    key = win.getKey()
-##    if key == "p" : 
-##        truth = False
-##    elif 38<tom.getX()<113 and 36<tom.getY()<72 and key == d:
-##        truth = False
-##    else:
-##        truth = True
     while truth == True:
         tom.moveKarisLevel(6,6,win)
 main()
