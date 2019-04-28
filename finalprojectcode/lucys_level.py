@@ -10,7 +10,7 @@ from sword_shard1 import *
 #once the riddle is solved, a door will appear, the npc will disappear,
 #and you will be able to progress to level 2
 
-def levelOne(win):
+def lucys_level(win):
     hero = Player("questa", Point(950, 450), win)
     door_1 = Point(40, 203)
     door_2 = Point (124, 130)
