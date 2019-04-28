@@ -83,6 +83,7 @@ class Person:
             self.rpupil.move(dx, 0)
             self.lpupil.move( dx, 0)
             self.mouth.move( dx, 0 )
+            update(30)
         if key == "a":
             self.head.move( -dx, 0 )
             self.arms.move( -dx, 0 )
@@ -95,6 +96,7 @@ class Person:
             self.rpupil.move( -dx, 0)
             self.lpupil.move( -dx, 0)
             self.mouth.move( -dx, 0 )
+            update(30)
         if key == "s":
             self.head.move( 0, dy )
             self.arms.move( 0, dy )
@@ -107,6 +109,7 @@ class Person:
             self.rpupil.move( 0, dy )
             self.lpupil.move( 0, dy )
             self.mouth.move( 0, dy )
+            update(30)
         if key == "w":
             self.head.move( 0, -dy )
             self.arms.move( 0, -dy )
@@ -119,6 +122,7 @@ class Person:
             self.rpupil.move( 0, -dy )
             self.lpupil.move( 0, -dy )
             self.mouth.move( 0, -dy )
+            update(30)
 
 class Player(Person):
     def __init__(self, name, position, win):
@@ -199,6 +203,7 @@ class Player(Person):
 ##            self.rpupil.move(dx, 0)
 ##            self.lpupil.move( dx, 0)
 ##            self.mouth.move( dx, 0 )
+            update(30)
         elif key == "a":
             self.hat.move( -dx, 0)
             self.brim.move( -dx, 0)
@@ -215,6 +220,7 @@ class Player(Person):
 ##            self.rpupil.move( -dx, 0)
 ##            self.lpupil.move( -dx, 0)
 ##            self.mouth.move( -dx, 0 )
+            update(30)
         elif key == "s":
             self.hat.move( 0, dy)
             self.brim.move( 0, dy)
@@ -231,6 +237,7 @@ class Player(Person):
 ##            self.rpupil.move( 0, dy )
 ##            self.lpupil.move( 0, dy )
 ##            self.mouth.move( 0, dy )
+            update(30)
         elif key == "w":
             self.hat.move( 0, -dy)
             self.brim.move( 0, -dy)
@@ -247,6 +254,7 @@ class Player(Person):
 ##            self.rpupil.move( 0, -dy )
 ##            self.lpupil.move( 0, -dy )
 ##            self.mouth.move( 0, -dy )
+            update(30)
 
 class King(Person):
     def __init__(self, name, position, win):
@@ -457,6 +465,7 @@ class Mini(Person):
             self.leftPit.move( dx, 0 )
             self.crotch.move( dx, 0 )
             self.shirt.move( dx, 0 )
+            update(30)
 
         if key == "a":
             self.head.move( -dx, 0 )
@@ -466,6 +475,7 @@ class Mini(Person):
             self.leftPit.move( -dx, 0 )
             self.crotch.move( -dx, 0 )
             self.shirt.move( -dx, 0 )
+            update(30)
 
         if key == "s":
             self.head.move( 0, dy )
@@ -475,6 +485,7 @@ class Mini(Person):
             self.leftPit.move( 0, dy )
             self.crotch.move( 0, dy )
             self.shirt.move( 0, dy )
+            update(30)
 
         if key == "w":
             self.head.move( 0, -dy )
@@ -484,6 +495,7 @@ class Mini(Person):
             self.leftPit.move( 0, -dy )
             self.crotch.move( 0, -dy )
             self.shirt.move( 0, -dy )
+            update(30)
         
 class bittyBro(Person):
     def __init__(self, name, position, win):
@@ -545,6 +557,7 @@ class bittyBro(Person):
             self.leftPit.move( dx, 0 )
             self.crotch.move( dx, 0 )
             self.shirt.move( dx, 0 )
+            update(30)
         if key == "a":
             self.head.move( -dx, 0 )
             self.arms.move( -dx, 0 )
@@ -553,6 +566,7 @@ class bittyBro(Person):
             self.leftPit.move( -dx, 0 )
             self.crotch.move( -dx, 0 )
             self.shirt.move( -dx, 0 )
+            update(30)
         if key == "s":
             self.head.move( 0, dy )
             self.arms.move( 0, dy )
@@ -561,6 +575,7 @@ class bittyBro(Person):
             self.leftPit.move( 0, dy )
             self.crotch.move( 0, dy )
             self.shirt.move( 0, dy )
+            update(30)
         if key == "w":
             self.head.move( 0, -dy )
             self.arms.move( 0, -dy )
@@ -569,52 +584,48 @@ class bittyBro(Person):
             self.leftPit.move( 0, -dy )
             self.crotch.move( 0, -dy )
             self.shirt.move( 0, -dy )
+            update(30)
     
     def moveKarisLevel( self , dx, dy, win ):
         key = win.getKey()
         if key == "d":
             if 25 < self.arms.getCenter().getX() < 31 and ( 36 < self.arms.getCenter().getY()+1.5 < 145 ):
                 if 25 < self.arms.getCenter().getX() < 31 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
-                    msg = Text(Point(300,350), "Boundary #2")
+                    msg = Text(Point(300,350), "There's a strange humming coming from this area and lots of little objects stuck to the ceiling.\nYou'd have to be thick to miss this gravity trap.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 137 < self.arms.getCenter().getX() < 143 and ( 145 < self.arms.getCenter().getY()+1.5 < 291 ):
                 if 137 < self.arms.getCenter().getX() < 143 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
-                    msg = Text(Point(300,350), "Boundary #16")
+                    msg = Text(Point(300,350), "It's a crate filled with bee sting ointment.")
                     msg.draw(win)
                 elif 137 < self.arms.getCenter().getX() < 143 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
-                    msg = Text(Point(300,350), "Boundary #8")
+                    msg = Text(Point(300,350), "A legless, armless knight challenges you to a fight. \nYou back away, not knowing exactly how that would work.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 250 < self.arms.getCenter().getX() < 256 and ( self.arms.getCenter().getY()+1.5 < 218 ):
                 if 250 < self.arms.getCenter().getX() < 256 and ( self.arms.getCenter().getY()+1.5 < 36 ):
-                    msg = Text(Point(300,350), "Boundary #20")
+                    msg = Text(Point(300,350), "There's a huge hole heaten in the floor here. \nFrom the looks of that metal base over there I'd wager someone broke their lava lamp.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 250 < self.arms.getCenter().getX() < 256 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
-                    msg = Text(Point(300,350), "Boundary #14")
+                    msg = Text(Point(300,350), "There's a woman shaped cactus over there. Her arms seem outstretched for a hug.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 250 < self.arms.getCenter().getX() < 256 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
-                    msg = Text(Point(300,350), "Boundary #18")
+                    msg = Text(Point(300,350), "This rock looks like the village strongman Dwayne, son of John.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                     return None
             elif 250 < self.arms.getCenter().getX() < 256 and ( 291 < self.arms.getCenter().getY()+1.5 ):
                 if 250 < self.arms.getCenter().getX() < 256 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
-                    msg = Text(Point(300,350), "Boundary #10")
-                    msg.draw(win)
-                    win.getMouse()
-                    msg.undraw()
-                elif 250 < self.arms.getCenter().getX() < 256 and ( 363 < self.arms.getCenter().getY()+1.5 ):
-                    msg = Text(Point(300,350), "Boundary #10")
+                    msg = Text(Point(300,350), "It's a huge bush with sweet-smelling flowers.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -623,24 +634,25 @@ class bittyBro(Person):
                 return None
             elif 362 < self.arms.getCenter().getX() < 368 and ( 218 < self.arms.getCenter().getY()+1.5 < 291 ):
                 if 362 < self.arms.getCenter().getX() < 368 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
-                    msg = Text(Point(300,350), "Boundary #17")
+                    msg = Text(Point(300,350), "This mime is stuck in a real box.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 475 < self.arms.getCenter().getX() < 481 and ( 145 < self.arms.getCenter().getY()+1.5 < 327 ):
                 if 475 < self.arms.getCenter().getX() < 481 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
-                    msg = Text(Point(300,350), "Boundary #1")
+                    msg = Text(Point(300,350), "It's a huge raging fire!!!")
+                    msg.setFill("White")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 475 < self.arms.getCenter().getX() < 481 and ( 218 < self.arms.getCenter().getY()+1.5 < 255 ):
-                    msg = Text(Point(300,350), "Boundary #1")
+                    msg = Text(Point(300,350), "It's a huge raging fire!!!")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 475 < self.arms.getCenter().getX() < 481 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
-                    msg = Text(Point(300,350), "Boundary #1")
+                    msg = Text(Point(300,350), "It's a huge raging fire!!!")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -655,6 +667,7 @@ class bittyBro(Person):
                 self.leftPit.move( dx, 0 )
                 self.crotch.move( dx, 0 )
                 self.shirt.move( dx, 0 )
+                update(30)
         if key == "a":
             if 7 < self.arms.getCenter().getX() < 13 and ( 15 < self.arms.getCenter().getY()+1.5 < 182 ):
                 return None
@@ -662,57 +675,57 @@ class bittyBro(Person):
                 return None
             elif 120 < self.arms.getCenter().getX() < 126 and ( 182 < self.arms.getCenter().getY()+1.5 < 327 ):
                 if 120 < self.arms.getCenter().getX() < 126 and ( 218 < self.arms.getCenter().getY()+1.5 < 225 ):
-                    msg = Text(Point(300,350), "Boundary #13")
+                    msg = Text(Point(300,350), "Looks like there's more piranha than pond here.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 120 < self.arms.getCenter().getX() < 126 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
-                    msg = Text(Point(300,350), "Boundary #13")
+                    msg = Text(Point(300,350), "Looks like there's more piranha than pond here.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 232 < self.arms.getCenter().getX() < 238 and ( 36 < self.arms.getCenter().getY()+1.5 < 255 ):
                 if 232 < self.arms.getCenter().getX() < 238 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
-                    msg = Text(Point(300,350), "Boundary #8")
+                    msg = Text(Point(300,350), "A legless, armless knight challenges you to a fight. \nYou back away, not knowing exactly how that would work.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 232 < self.arms.getCenter().getX() < 238 and ( 218 < self.arms.getCenter().getY()+1.5 < 225 ):
-                    msg = Text(Point(300,350), "Boundary #16")
+                    msg = Text(Point(300,350), "It's a crate filled with bee sting ointment.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 345 < self.arms.getCenter().getX() < 351 and ( 72 < self.arms.getCenter().getY()+1.5 < 182 ):
                 if 345 < self.arms.getCenter().getX() < 351 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
-                    msg = Text(Point(300,350), "Boundary #14")
+                    msg = Text(Point(300,350), "There's a woman shaped cactus over there. Her arms seem outstretched for a hug.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 345 < self.arms.getCenter().getX() < 351 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
-                    msg = Text(Point(300,350), "Boundary #18")
+                    msg = Text(Point(300,350), "This rock looks like the village strongman Dwayne, son of John.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 345 < self.arms.getCenter().getX() < 351 and ( 255 < self.arms.getCenter().getY()+1.5 < 327 ):
                 if 345 < self.arms.getCenter().getX() < 351 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
-                    msg = Text(Point(300,350), "Boundary #10")
+                    msg = Text(Point(300,350), "It's a huge bush with sweet-smelling flowers.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 437 < self.arms.getCenter().getX() < 443 and ( 182 < self.arms.getCenter().getY()+1.5 < 291 ):
                 if 437 < self.arms.getCenter().getX() < 443 and ( 218 < self.arms.getCenter().getY()+1.5 < 226 ):
-                    msg = Text(Point(300,350), "Boundary #17")
+                    msg = Text(Point(300,350), "This mime is stuck in a real box.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 570 < self.arms.getCenter().getX() < 576 and (  self.arms.getCenter().getY()+1.5 < 72 ):
                 if 570 < self.arms.getCenter().getX() < 576 and ( self.arms.getCenter().getY()+1.5 < 36 ):
-                    msg = Text(Point(300,350), "Boundary #18")
+                    msg = Text(Point(300,350), "There's a huge hole heaten in the floor here. \nFrom the looks of that metal base over there I'd wager someone broke their lava lamp.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -726,62 +739,63 @@ class bittyBro(Person):
                 self.leftPit.move( -dx, 0 )
                 self.crotch.move( -dx, 0 )
                 self.shirt.move( -dx, 0 )
+                update(30)
         if key == "s":
             if 18 < self.arms.getCenter().getY()+1.5 < 24 and ( 38 < self.arms.getCenter().getX() < 225 ):
                 if 18 < self.arms.getCenter().getY()+1.5 < 24 and ( 113 < self.arms.getCenter().getX() < 150 ):
-                    msg = Text(Point(300,350), "Boundary #2")
+                    msg = Text(Point(300,350), "There's a strange humming coming from this area and lots of little objects stuck to the ceiling.\nYou'd have to be thick to miss this gravity trap.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
-            elif 91 < self.arms.getCenter().getY()+1.5 < 95 and ( self.arms.getCenter().getX() > 375 ):
-                if 91 < self.arms.getCenter().getY()+1.5 < 95 and ( 563 < self.arms.getCenter().getX() ):
-                    msg = Text(Point(300,350), "Boundary #1")
+            elif 91 < self.arms.getCenter().getY()+1.5 < 97 and ( self.arms.getCenter().getX() > 375 ):
+                if 91 < self.arms.getCenter().getY()+1.5 < 97 and ( 563 < self.arms.getCenter().getX() ):
+                    msg = Text(Point(300,350), "It's a huge raging fire!!!")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
-                elif 91 < self.arms.getCenter().getY()+1.5 < 95 and ( 450 < self.arms.getCenter().getX() < 488 ):
-                    msg = Text(Point(300,350), "Boundary #15")
+                elif 91 < self.arms.getCenter().getY()+1.5 < 97 and ( 450 < self.arms.getCenter().getX() < 488 ):
+                    msg = Text(Point(300,350), "It's a huge pile of nothing but right shoes.\nIt may be wrong but it feels so right.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( self.arms.getCenter().getX() < 113 ):
                 if 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( self.arms.getCenter().getX() < 38 ):
-                    msg = Text(Point(300,350), "Boundary #13")
+                    msg = Text(Point(300,350), "Looks like there's more piranha than pond here.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( 338 < self.arms.getCenter().getX() < 450 ):
                 if 164 < self.arms.getCenter().getY()+1.5 <= 170 and ( 338 < self.arms.getCenter().getX() < 375 ):
-                    msg = Text(Point(300,350), "Boundary #19")
+                    msg = Text(Point(300,350), "That's one rowdy mosh pit!")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 237 < self.arms.getCenter().getY()+1.5 < 243 and ( 225 < self.arms.getCenter().getX() < 338 ):
                 if 237 < self.arms.getCenter().getY()+1.5 < 243 and ( 225 < self.arms.getCenter().getX() < 263 ):
-                    msg = Text(Point(300,350), "Boundary #4")
+                    msg = Text(Point(300,350), "This hole isn't very wide but you can't see the bottom.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 113 < self.arms.getCenter().getX() < 225 ):
                 if 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 113 < self.arms.getCenter().getX() < 150 ):
-                    msg = Text(Point(300,350), "Boundary #5")
+                    msg = Text(Point(300,350), "A group of whippersnappers! You yell at them for loitering but they just laugh in your face. Ouch.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 338 < self.arms.getCenter().getX() < 488 ):
                 if 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 450 < self.arms.getCenter().getX() < 488 ):
-                    msg = Text(Point(300,350), "Boundary #20")
+                    msg = Text(Point(300,350), "There's a huge hole heaten in the floor here. \nFrom the looks of that metal base over there I'd wager someone broke their lava lamp.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 elif 310 < self.arms.getCenter().getY()+1.5 < 316 and ( 338 < self.arms.getCenter().getX() < 375 ):
-                    msg = Text(Point(300,350), "Boundary #20")
+                    msg = Text(Point(300,350), "There's a huge hole heaten in the floor here. \nFrom the looks of that metal base over there I'd wager someone broke their lava lamp.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -797,6 +811,7 @@ class bittyBro(Person):
                 self.leftPit.move( 0, dy )
                 self.crotch.move( 0, dy )
                 self.shirt.move( 0, dy )
+                update(30)
         if key == "w":
             print(self.arms.getCenter().getY())
             print(self.arms.getCenter().getX())
@@ -808,7 +823,7 @@ class bittyBro(Person):
                     win.getMouse()
                     msg.undraw()
                 elif 69 < self.arms.getCenter().getY()+1.5 < 75 and ( 450 < self.arms.getCenter().getX() < 488 ):
-                    msg = Text(Point(300,350), "Boundary #20")
+                    msg = Text(Point(300,350), "There's a huge hole heaten in the floor here. \nFrom the looks of that metal base over there I'd wager someone broke their lava lamp.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -819,28 +834,28 @@ class bittyBro(Person):
                 return None
             elif 142 < self.arms.getCenter().getY()+1.5 < 148 and ( self.arms.getCenter().getX() > 375 ):
                 if 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 338 < self.arms.getCenter().getX() < 375 ):
-                    msg = Text(Point(300,350), "Boundary #15")
+                    msg = Text(Point(300,350), "It's a huge pile of nothing but right shoes.\nIt may be wrong but it feels so right.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 38 < self.arms.getCenter().getX() < 150 ):
                 if 142 < self.arms.getCenter().getY()+1.5 < 148 and ( 113 < self.arms.getCenter().getX() < 150 ):
-                    msg = Text(Point(300,350), "Boundary #2")
+                    msg = Text(Point(300,350), "There's a strange humming coming from this area and lots of little objects stuck to the ceiling.\nYou'd have to be thick to miss this gravity trap.)
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 215 < self.arms.getCenter().getY()+1.5 < 221 and ( 263 < self.arms.getCenter().getX() < 375 ):
                 if 215 < self.arms.getCenter().getY()+1.5 < 221 and ( 338 < self.arms.getCenter().getX() < 375 ):
-                    msg = Text(Point(300,350), "Boundary #19")
+                    msg = Text(Point(300,350), "That's one rowdy mosh pit!")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
                 return None
             elif 288 < self.arms.getCenter().getY()+1.5 < 294 and ( 150 < self.arms.getCenter().getX() < 263 ):
                 if 288 < self.arms.getCenter().getY()+1.5 < 294 and ( 225 < self.arms.getCenter().getX() < 263 ):
-                    msg = Text(Point(300,350), "Boundary #4")
+                    msg = Text(Point(300,350), "This hole isn't very wide but you can't see the bottom.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -849,7 +864,12 @@ class bittyBro(Person):
                 return None
             elif 360 < self.arms.getCenter().getY()+1.5 < 366 and (  self.arms.getCenter().getX() < 255 ):
                 if 360 < self.arms.getCenter().getY()+1.5 < 366 and ( self.arms.getCenter().getX() < 38 ):
-                    msg = Text(Point(300,350), "Boundary #13")
+                    msg = Text(Point(300,350), "Looks like there's more piranha than pond here.")
+                    msg.draw(win)
+                    win.getMouse()
+                    msg.undraw()
+                if 360 < self.arms.getCenter().getY()+1.5 < 366 and ( 113 self.arms.getCenter().getX() < 150 ):
+                    msg = Text(Point(300,350), "A group of whippersnappers! You yell at them for loitering but they just laugh in your face. Ouch.")
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -862,6 +882,7 @@ class bittyBro(Person):
                 self.leftPit.move( 0, -dy )
                 self.crotch.move( 0, -dy )
                 self.shirt.move( 0, -dy )
+                update(30)
                 
         if key == "b" :
             if 345 < self.arms.getCenter().getX() < 351 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
