@@ -1,4 +1,4 @@
-from game_level_one import *
+from lucys_level import *
 from throne_room import *
 from graphics import *
 
