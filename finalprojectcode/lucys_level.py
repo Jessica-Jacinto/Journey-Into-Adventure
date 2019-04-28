@@ -10,7 +10,7 @@ from sword_shard1 import *
 #once the riddle is solved, a door will appear, the npc will disappear,
 #and you will be able to progress to level 2
 
-def lucys_level(win):
+def levelOne(win):
     hero = Player("questa", Point(950, 450), win)
     door_1 = Point(40, 203)
     door_2 = Point (124, 130)
@@ -70,7 +70,7 @@ def lucys_level(win):
                 elif player_input == "y":
 #waits for you to enter answer and click the screen
                     entry = Entry(Point(700, 500), 10)
-                    prompt = Text(Point(700, 400), "enter answer here, then click anywhere to check")
+                    prompt = Text(Point(700, 450), "enter answer here, then click anywhere to check")
                     prompt.setSize(20)
                     prompt.draw(win)
                     entry.draw(win)
@@ -87,11 +87,13 @@ def lucys_level(win):
                         npc.draw(win)
                         hero.draw(win)
                         right_answer = Text(Point(600, 700), text_list[4])
+                        right_answer.setSize(20)
                         right_answer.draw(win)
                         unsolved = False
 #if you answer incorrectly, it tells you so then brings you back to the start of the riddle
                     else:
                         wrong_answer = Text(Point(600, 700), text_list[3])
+                        wrong_answer.setSize(20)
                         wrong_answer.draw(win)
                         player_input = win.getKey()
                         entry.undraw()
