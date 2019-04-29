@@ -1,8 +1,5 @@
 from graphics import *
-WIDTH = 1000
-HEIGHT = 500
-win = GraphWin( "cowLevel", WIDTH, HEIGHT )
-
+from levelintro import *
 class Grass:
     def __init__(self,win):
         self.grass =Rectangle(Point(0,400), Point(1000,500))
@@ -190,7 +187,16 @@ def frontLeg():
                 front_leg.setFill("white")
                 front_leg.draw(win)
                 a = win.getKey()
-          
+            else:
+                bad.undraw()
+                front_leg.undraw()
+                p1 = win.getMouse()
+                p2 = win.getMouse()
+                front_leg = Rectangle(p3,p4)
+                front_leg.setFill("white")
+                front_leg.draw(win)
+                a = win.getKey()
+
 
 def Body():
     #body
@@ -220,6 +226,16 @@ def Body():
                 body.setFill("white")
                 body.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                body.undraw()
+                p5 = win.getMouse()
+                p6 = win.getMouse()
+                body = Rectangle(p5,p6)
+                body.setFill("white")
+                body.draw(win)
+                a = win.getKey()
+                
       
         
 def Head():
@@ -250,6 +266,16 @@ def Head():
                 head.setFill("white")
                 head.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                head.undraw()
+                p7 = win.getMouse()
+                p8 = win.getMouse()
+                head = Rectangle(p7,p8)
+                head.setFill("white")
+                head.draw(win)
+                a = win.getKey()
+                
         
 def leftEar():
     #ears
@@ -281,6 +307,17 @@ def leftEar():
                 left_ear.setFill("white")
                 left_ear.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                left_ear.undraw()
+                p9 = win.getMouse()
+                p10 = win.getMouse()
+                p11 = win.getMouse()
+                left_ear = Polygon(p9,p10,p11)
+                left_ear.setFill("white")
+                left_ear.draw(win)
+                a = win.getKey()
+                
         
 def rightEar():
     p12 = win.getMouse()
@@ -311,6 +348,17 @@ def rightEar():
                 right_ear.setFill("white")
                 right_ear.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                right_ear.undraw()
+                p12 = win.getMouse()
+                p13 = win.getMouse()
+                p14 = win.getMouse()
+                right_ear = Polygon(p12,p13,p14)
+                right_ear.setFill("white")
+                right_ear.draw(win)
+                a = win.getKey()
+                
     
 def leftEye():
     #eyes
@@ -340,6 +388,16 @@ def leftEye():
                 left_eye.setFill("black")
                 left_eye.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                left_eye.undraw()
+                p15 = win.getMouse()
+                p16 = win.getMouse()
+                left_eye = Rectangle(p15,p16)
+                left_eye.setFill("black")
+                left_eye.draw(win)
+                a = win.getKey()
+                    
     
         
 def rightEye():
@@ -369,67 +427,97 @@ def rightEye():
                 right_eye.setFill("black")
                 right_eye.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                right_eye.undraw()
+                p17 = win.getMouse()
+                p18 = win.getMouse()
+                right_eye = Rectangle(p17,p18)
+                right_eye.setFill("black")
+                right_eye.draw(win)
+                a = win.getKey()
+                
     
         
-def leftNostril():
-    # nostrils
-    p19 = win.getMouse()
-    p20 = win.getMouse()
-    p36 = win.getMouse()
-    left_nostril = Line(p19,p20,p36)
-    left_nostril.setFill("black")
-    left_nostril.draw(win)
-    solved = False  
-    while solved == False:
-        if  365> p19.getX() >355 and 215> p19.getY() >205 and 375 > p20.getX()  >365 and 225 > p20.getY() >215 and 365 > p36.getX > 355 and 225 > p36.getY() > 215():
-            good = goodResponse(win)
-            good.draw(win)
-            win.getKey()
-            good.undraw()
-            solved = True
-        else:
-            bad = badResponse(win)
-            bad.draw(win)
-            a = win.getKey()
-            if a == "u":
-                bad.undraw()
-                left_nostril.undraw()
-                p19 = win.getMouse()
-                p20 = win.getMouse()
-                left_nostril = Line(p19,p20)
-                left_nostril.setFill("black")
-                left_nostril.draw(win)
-                a = win.getKey()
-    
-        
-def rightNostril():
-    p21 = win.getMouse()
-    p22 = win.getMouse()
-    p37 = win.getMouse()
-    right_nostril = Line(p21,p22,p37)
-    right_nostril.setFill("black")
-    right_nostril.draw(win)
-    solved = False  
-    while solved == False:
-        if  395> p21.getX() >385 and 215> p21.getY() >205 and 405 > p22.getX()  >395 and 225 > p22.getY() >215 and 405 > p37.getX() > 395 and 225 > p37.getY() > 215:
-            good = goodResponse(win)
-            good.draw(win)
-            win.getKey()
-            good.undraw()
-            solved = True
-        else:
-            bad = badResponse(win)
-            bad.draw(win)
-            a = win.getKey()
-            if a == "u":
-                bad.undraw()
-                right_nostril.undraw()
-                p21 = win.getMouse()
-                p22 = win.getMouse()
-                right_nostril = Line(p21,p22)
-                right_nostril.setFill("black")
-                right_nostril.draw(win)
-                a = win.getKey()
+##def leftNostril():
+##    # nostrils
+##    p19 = win.getMouse()
+##    p20 = win.getMouse()
+##    p36 = win.getMouse()
+##    left_nostril = Polygon(p19,p20,p36)
+##    left_nostril.setFill("black")
+##    left_nostril.draw(win)
+##    solved = False  
+##    while solved == False:
+##        if  365 > p19.getX() >355 and 215 > p19.getY() > 205 and 375 > p20.getX()  >365 and 225 > p20.getY() >215 and 365 > p36.getX > 355 and 225 > p36.getY() > 215:
+##            good = goodResponse(win)
+##            good.draw(win)
+##            win.getKey()
+##            good.undraw()
+##            solved = True
+##        else:
+##            bad = badResponse(win)
+##            bad.draw(win)
+##            a = win.getKey()
+##            if a == "u":
+##                bad.undraw()
+##                left_nostril.undraw()
+##                p19 = win.getMouse()
+##                p20 = win.getMouse()
+##                left_nostril = Line(p19,p20)
+##                left_nostril.setFill("black")
+##                left_nostril.draw(win)
+##                a = win.getKey()
+##            else:
+##                bad.undraw()
+##                left_nostril.undraw()
+##                p19 = win.getMouse()
+##                p20 = win.getMouse()
+##                left_nostril = Line(p19,p20)
+##                left_nostril.setFill("black")
+##                left_nostril.draw(win)
+##                a = win.getKey()
+##                
+##    
+##        
+##def rightNostril():
+##    p21 = win.getMouse()
+##    p22 = win.getMouse()
+##    p37 = win.getMouse()
+##    right_nostril = Polygon(p21,p22,p37)
+##    right_nostril.setFill("black")
+##    right_nostril.draw(win)
+##    solved = False  
+##    while solved == False:
+##        if  395> p21.getX() >385 and 215> p21.getY() >205 and 405 > p22.getX()  >395 and 225 > p22.getY() >215 and 405 > p37.getX() > 395 and 225 > p37.getY() > 215:
+##            good = goodResponse(win)
+##            good.draw(win)
+##            win.getKey()
+##            good.undraw()
+##            solved = True
+##        else:
+##            bad = badResponse(win)
+##            bad.draw(win)
+##            a = win.getKey()
+##            if a == "u":
+##                bad.undraw()
+##                right_nostril.undraw()
+##                p21 = win.getMouse()
+##                p22 = win.getMouse()
+##                right_nostril = Line(p21,p22)
+##                right_nostril.setFill("black")
+##                right_nostril.draw(win)
+##                a = win.getKey()
+##            else:
+##                bad.undraw()
+##                right_nostril.undraw()
+##                p21 = win.getMouse()
+##                p22 = win.getMouse()
+##                right_nostril = Line(p21,p22)
+##                right_nostril.setFill("black")
+##                right_nostril.draw(win)
+##                a = win.getKey()
+                
 def tail():
     # tail
     p23 = win.getMouse()
@@ -468,6 +556,21 @@ def tail():
                 tail.setFill("black")
                 tail.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                tail.undraw()
+                p23 = win.getMouse()
+                p24 = win.getMouse()
+                p25 = win.getMouse()
+                p26 = win.getMouse()
+                p27 = win.getMouse()
+                p28 = win.getMouse()
+                p29 = win.getMouse()
+                tail = Polygon(p23,p24,p25,p26,p27,p28,p29)
+                tail.setFill("black")
+                tail.draw(win)
+                a = win.getKey()
+                
     
 def spot():
     p30 = win.getMouse()
@@ -496,6 +599,16 @@ def spot():
                 spot.setFill("black")
                 spot.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                spot.undraw()
+                p30 = win.getMouse()
+                p31 = win.getMouse()
+                spot = Oval(p30,p31)
+                spot.setFill("black")
+                spot.draw(win)
+                a = win.getKey()
+                
 
 def spot2():
     p32 = win.getMouse()
@@ -524,6 +637,16 @@ def spot2():
                 spot2.setFill("black")
                 spot2.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                spot2.undraw()
+                p32 = win.getMouse()
+                p33 = win.getMouse()
+                spot2 = Oval(p32,p33)
+                spot2.setFill("black")
+                spot2.draw(win)
+                a = win.getKey()
+                
 
 
 def spot3():
@@ -553,6 +676,16 @@ def spot3():
                 spot3.setFill("black")
                 spot3.draw(win)
                 a = win.getKey()
+            else:
+                bad.undraw()
+                spot3.undraw()
+                p34 = win.getMouse()
+                p35 = win.getMouse()
+                spot3 = Oval(p34,p35)
+                spot3.setFill("black")
+                spot3.draw(win)
+                a = win.getKey()
+                
 
 
 class Instructions:
@@ -581,17 +714,17 @@ class Instructions:
         self.text_box11.setText("left eye ")
         self.text_box12 = Text(Point(900,160), 100)
         self.text_box12.setText("right eye")
-        self.text_box13 = Text(Point(900,175), 100)
-        self.text_box13.setText("left nostril")
-        self.text_box14 = Text(Point(900,190), 100)
-        self.text_box14.setText("right nostril")
-        self.text_box15 = Text(Point(900,205), 100)
+##        self.text_box13 = Text(Point(900,175), 100)
+##        self.text_box13.setText("left nostril")
+##        self.text_box14 = Text(Point(900,190), 100)
+##        self.text_box14.setText("right nostril")
+        self.text_box15 = Text(Point(900,175), 100)
         self.text_box15.setText("tail")
-        self.text_box16 = Text(Point(900,220), 100)
+        self.text_box16 = Text(Point(900,190), 100)
         self.text_box16.setText("back spot")
-        self.text_box17 = Text(Point(900,235), 100)
+        self.text_box17 = Text(Point(900,205), 100)
         self.text_box17.setText("front spot")
-        self.text_box18 = Text(Point(900,250), 100)
+        self.text_box18 = Text(Point(900,220), 100)
         self.text_box18.setText("middle spot")
         self.text_box19 = Text(Point(600,255), 100)
         self.text_box19.setText("note: order in which you click the points matters")
@@ -633,12 +766,12 @@ class Instructions:
         self.text_box12.setTextColor("white")
         self.text_box12.setSize(12)
         self.text_box12.draw(win)
-        self.text_box13.setTextColor("white")
-        self.text_box13.setSize(12)
-        self.text_box13.draw(win)
-        self.text_box14.setTextColor("white")
-        self.text_box14.setSize(12)
-        self.text_box14.draw(win)
+##        self.text_box13.setTextColor("white")
+##        self.text_box13.setSize(12)
+##        self.text_box13.draw(win)
+##        self.text_box14.setTextColor("white")
+##        self.text_box14.setSize(12)
+##        self.text_box14.draw(win)
         self.text_box15.setTextColor("white")
         self.text_box15.setSize(12)
         self.text_box15.draw(win)
@@ -660,7 +793,7 @@ class Instructions:
 
 
     
-def main():
+def cow_level():
     sky = Sky(win)
     sky.draw(win)
     grass = Grass(win)
@@ -681,11 +814,9 @@ def main():
     rightEar()
     leftEye()
     rightEye()
-    leftNostril()
-    rightNostril()
     tail()
     spot()
     spot2()
     spot3()
-   
-main()
+
+
