@@ -1,4 +1,4 @@
-from final_project_person_class import *
+from Final_project_person_class import *
 from graphics import *
 import time
 from sword_shard1 import *
