@@ -2,7 +2,6 @@ from graphics import *
 from Final_project_person_class import *
 from random import *
 
-
 def drawRoom(win):
     block1 = Rectangle(Point(38,36),Point(113,72))
     block2 = Rectangle(Point(38,109),Point(113,145))
@@ -38,13 +37,13 @@ def drawRoom(win):
     
     obstacle2 = Polygon(Point(38,72),Point(113,72),Point(113,36),Point(150,36),Point(150,72),Point(225,72),Point(225,109),
                         Point(150,109),Point(150,145),Point(113,145),Point(113,109),Point(38,109))
-    obstacle2.setFill("Orange") #fix color
+    obstacle2.setFill("Silver")
     
     obstacle4 = Circle(Point(244,273),15)
     obstacle4.setFill("Black")
     
     obstacle5 = Circle(Point(131,346),15)
-    obstacle5.setFill("Black")#fix color
+    obstacle5.setFill(color_rgb(55,71,96))
     
     obstacle8_1 = Rectangle(Point(191,223),Point(185,233))
     obstacle8_2 = Rectangle(Point(195,233),Point(181,249))
@@ -72,7 +71,7 @@ def drawRoom(win):
 
     obstacle18 = theRock("Dwayne",Point(298,164),win)
 
-    obstacle19 = Circle(Point(200,357),15)
+    obstacle19 = Circle(Point(357,200),15)
     obstacle19.setFill("DarkSlateGray")
 
     obstacle20 = Rectangle(Point(263,0),Point(563,72))
@@ -147,7 +146,8 @@ def drawRoom(win):
     block24.draw(win)
     block25.draw(win)
 
-def puzzle():
+
+def Puzzle():
     win = GraphWin("Maze",550,550)
     
     line1 = Line(Point(50,0),Point(50,550))
@@ -196,114 +196,120 @@ def puzzle():
     locations = []
     for i in range(49):
         location = win.getMouse()
-        point = Circle(loc,5)
+        point = Circle(location,5)
+        point.setFill("Red")
+        point.draw(win)
         locations.append(location)
         
     good_spots = []
     
-    if 500 < location[0].getX() < 550 and 0 < location[0].getY() < 50:
+    if 500 < locations[0].getX() < 550 and 0 < locations[0].getY() < 50:
         good_spots.append(True)
-    if 500 < location[1].getX() < 550 and 50 < location[0].getY() < 100:
+    if 500 < locations[1].getX() < 550 and 50 < locations[1].getY() < 100:
         good_spots.append(True)
-    if 500 < location[2].getX() < 550 and 100 < location[0].getY() < 150:
+    if 500 < locations[2].getX() < 550 and 100 < locations[2].getY() < 150:
         good_spots.append(True)
-    if 450 < location[3].getX() < 500 and 100 < location[0].getY() < 150:
+    if 450 < locations[3].getX() < 500 and 100 < locations[3].getY() < 150:
         good_spots.append(True)
-    if 400 < location[4].getX() < 450 and 100 < location[0].getY() < 150:
+    if 400 < locations[4].getX() < 450 and 100 < locations[4].getY() < 150:
         good_spots.append(True)
-    if 350 < location[5].getX() < 400 and 100 < location[0].getY() < 150:
+    if 350 < locations[5].getX() < 400 and 100 < locations[5].getY() < 150:
         good_spots.append(True)
-    if 300 < location[6].getX() < 350 and 100 < location[0].getY() < 150:
+    if 300 < locations[6].getX() < 350 and 100 < locations[6].getY() < 150:
         good_spots.append(True)
-    if 300 < location[7].getX() < 350 and 150 < location[0].getY() < 200:
+    if 300 < locations[7].getX() < 350 and 150 < locations[7].getY() < 200:
         good_spots.append(True)
-    if 300 < location[8].getX() < 350 and 200 < location[0].getY() < 250:
+    if 300 < locations[8].getX() < 350 and 200 < locations[8].getY() < 250:
         good_spots.append(True)
-    if 350 < location[9].getX() < 400 and 200 < location[0].getY() < 250:
+    if 350 < locations[9].getX() < 400 and 200 < locations[9].getY() < 250:
         good_spots.append(True)
-    if 400 < location[10].getX() < 450 and 200 < location[0].getY() < 250:
+    if 400 < locations[10].getX() < 450 and 200 < locations[10].getY() < 250:
         good_spots.append(True)
-    if 400 < location[11].getX() < 450 and 250 < location[0].getY() < 300:
+    if 400 < locations[11].getX() < 450 and 250 < locations[11].getY() < 300:
         good_spots.append(True)
-    if 400 < location[12].getX() < 450 and 300 < location[0].getY() < 350:
+    if 400 < locations[12].getX() < 450 and 300 < locations[12].getY() < 350:
         good_spots.append(True)
-    if 400 < location[13].getX() < 450 and 350 < location[0].getY() < 400:
+    if 400 < locations[13].getX() < 450 and 350 < locations[13].getY() < 400:
         good_spots.append(True)
-    if 400 < location[14].getX() < 450 and 400 < location[0].getY() < 450:
+    if 400 < locations[14].getX() < 450 and 400 < locations[14].getY() < 450:
         good_spots.append(True)
-    if 350 < location[15].getX() < 400 and 400 < location[0].getY() < 450:
+    if 350 < locations[15].getX() < 400 and 400 < locations[15].getY() < 450:
         good_spots.append(True)
-    if 300 < location[16].getX() < 350 and 400 < location[0].getY() < 450:
+    if 300 < locations[16].getX() < 350 and 400 < locations[16].getY() < 450:
         good_spots.append(True)
-    if 300 < location[17].getX() < 350 and 350 < location[0].getY() < 400:
+    if 300 < locations[17].getX() < 350 and 350 < locations[17].getY() < 400:
         good_spots.append(True)
-    if 300 < location[18].getX() < 350 and 300 < location[0].getY() < 350:
+    if 300 < locations[18].getX() < 350 and 300 < locations[18].getY() < 350:
         good_spots.append(True)
-    if 250 < location[19].getX() < 300 and 300 < location[0].getY() < 350:
+    if 250 < locations[19].getX() < 300 and 300 < locations[19].getY() < 350:
         good_spots.append(True)
-    if 200 < location[20].getX() < 250 and 300 < location[0].getY() < 350:
+    if 200 < locations[20].getX() < 250 and 300 < locations[20].getY() < 350:
         good_spots.append(True)
-    if 200 < location[21].getX() < 250 and 250 < location[0].getY() < 300:
+    if 200 < locations[21].getX() < 250 and 250 < locations[21].getY() < 300:
         good_spots.append(True)
-    if 200 < location[22].getX() < 250 and 200 < location[0].getY() < 250:
+    if 200 < locations[22].getX() < 250 and 200 < locations[22].getY() < 250:
         good_spots.append(True)
-    if 200 < location[23].getX() < 250 and 150 < location[0].getY() < 200:
+    if 200 < locations[23].getX() < 250 and 150 < locations[23].getY() < 200:
         good_spots.append(True)
-    if 200 < location[24].getX() < 250 and 100 < location[0].getY() < 150:
+    if 200 < locations[24].getX() < 250 and 100 < locations[24].getY() < 150:
         good_spots.append(True)
-    if 200 < location[25].getX() < 250 and 50 < location[0].getY() < 100:
+    if 200 < locations[25].getX() < 250 and 50 < locations[25].getY() < 100:
         good_spots.append(True)
-    if 200 < location[26].getX() < 250 and 0 < location[0].getY() < 50:
+    if 200 < locations[26].getX() < 250 and 0 < locations[26].getY() < 50:
         good_spots.append(True)
-    if 150 < location[27].getX() < 200 and 0 < location[0].getY() < 50:
+    if 150 < locations[27].getX() < 200 and 0 < locations[27].getY() < 50:
         good_spots.append(True)
-    if 100 < location[28].getX() < 150 and 0 < location[0].getY() < 50:
+    if 100 < locations[28].getX() < 150 and 0 < locations[28].getY() < 50:
         good_spots.append(True)
-    if 50 < location[29].getX() < 100 and 0 < location[0].getY() < 50:
+    if 50 < locations[29].getX() < 100 and 0 < locations[29].getY() < 50:
         good_spots.append(True)
-    if 0 < location[30].getX() < 50 and 0 < location[0].getY() < 50:
+    if 0 < locations[30].getX() < 50 and 0 < locations[30].getY() < 50:
         good_spots.append(True)
-    if 0 < location[31].getX() < 50 and 50 < location[0].getY() < 100:
+    if 0 < locations[31].getX() < 50 and 50 < locations[31].getY() < 100:
         good_spots.append(True)
-    if 0 < location[32].getX() < 50 and 100 < location[0].getY() < 150:
+    if 0 < locations[32].getX() < 50 and 100 < locations[32].getY() < 150:
         good_spots.append(True)
-    if 0 < location[33].getX() < 50 and 150 < location[0].getY() < 200:
+    if 0 < locations[33].getX() < 50 and 150 < locations[33].getY() < 200:
         good_spots.append(True)
-    if 0 < location[34].getX() < 50 and 200 < location[0].getY() < 250:
+    if 0 < locations[34].getX() < 50 and 200 < locations[34].getY() < 250:
         good_spots.append(True)
-    if 50 < location[35].getX() < 100 and 200 < location[0].getY() < 250:
+    if 50 < locations[35].getX() < 100 and 200 < locations[35].getY() < 250:
         good_spots.append(True)
-    if 100 < location[36].getX() < 150 and 200 < location[0].getY() < 250:
+    if 100 < locations[36].getX() < 150 and 200 < locations[36].getY() < 250:
         good_spots.append(True)
-    if 100 < location[37].getX() < 150 and 250 < location[0].getY() < 300:
+    if 100 < locations[37].getX() < 150 and 250 < locations[37].getY() < 300:
         good_spots.append(True)
-    if 100 < location[38].getX() < 150 and 300 < location[0].getY() < 350:
+    if 100 < locations[38].getX() < 150 and 300 < locations[38].getY() < 350:
         good_spots.append(True)
-    if 100 < location[39].getX() < 150 and 350 < location[0].getY() < 400:
+    if 100 < locations[39].getX() < 150 and 350 < locations[39].getY() < 400:
         good_spots.append(True)
-    if 100 < location[40].getX() < 150 and 400 < location[0].getY() < 450:
+    if 100 < locations[40].getX() < 150 and 400 < locations[40].getY() < 450:
         good_spots.append(True)
-    if 150 < location[41].getX() < 200 and 400 < location[0].getY() < 450:
+    if 150 < locations[41].getX() < 200 and 400 < locations[41].getY() < 450:
         good_spots.append(True)
-    if 200 < location[42].getX() < 250 and 400 < location[0].getY() < 450:
+    if 200 < locations[42].getX() < 250 and 400 < locations[42].getY() < 450:
         good_spots.append(True)
-    if 200 < location[43].getX() < 250 and 450 < location[0].getY() < 500:
+    if 200 < locations[43].getX() < 250 and 450 < locations[43].getY() < 500:
         good_spots.append(True)
-    if 200 < location[44].getX() < 250 and 500 < location[0].getY() < 550:
+    if 200 < locations[44].getX() < 250 and 500 < locations[44].getY() < 550:
         good_spots.append(True)
-    if 150 < location[45].getX() < 200 and 500 < location[0].getY() < 550:
+    if 150 < locations[45].getX() < 200 and 500 < locations[45].getY() < 550:
         good_spots.append(True)
-    if 100 < location[46].getX() < 150 and 0 < location[0].getY() < 550:
+    if 100 < locations[46].getX() < 150 and 0 < locations[46].getY() < 550:
         good_spots.append(True)
-    if 50 < location[47].getX() < 100 and 0 < location[0].getY() < 550:
+    if 50 < locations[47].getX() < 100 and 0 < locations[47].getY() < 550:
         good_spots.append(True)
-    if 0 < location[48].getX() < 50 and 0 < location[0].getY() < 550:
+    if 0 < locations[48].getX() < 50 and 0 < locations[48].getY() < 550:
         good_spots.append(True)
             
     if len(good_spots) == 49:
-        message = Text(Point(275,450),"Correct!")
-        message.setFill("White")
+        box = Rectangle(Point(0,400),Point(550,500))
+        box.setFill("White")
+        message = Text(Point(275,450),"Correct! \nThe door opens and a piece of a sword falls \nfrom where it was wedged in the frame.")
+        box.draw(win)
         message.draw(win)
+        win.getClick()
+        win.close()
         
         
 def main():
@@ -316,4 +322,7 @@ def main():
 
     while truth == True:
         tom.moveKarisLevel(6,6,win)
+        if 5 < tom.getX() < 13 and ( 363 < tom.getY()+1.5 < 400 ):
+            Puzzle()
+            win.close()
 main()
