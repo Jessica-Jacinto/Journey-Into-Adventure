@@ -3,6 +3,7 @@ from Final_project_person_class import *
 from random import *
 
 def drawRoom(win):
+    #all of the walls for the room
     block1 = Rectangle(Point(38,36),Point(113,72))
     block2 = Rectangle(Point(38,109),Point(113,145))
     block3 = Rectangle(Point(38,182),Point(113,218))
@@ -29,6 +30,7 @@ def drawRoom(win):
     block24 = Rectangle(Point(488,255),Point(563,291))
     block25 = Rectangle(Point(488,327),Point(563,363))
 
+    #all of the obstacles in the room
     obstacle1 = Polygon(Point(263,400),Point(263,364),Point(338,364),Point(338,327),Point(375,327),Point(375,364),Point(450,364),
                         Point(450,327),Point(488,327),Point(488,364),Point(563,364),Point(563,327),Point(488,327),Point(488,291),
                         Point(563,291),Point(563,255),Point(488,255),Point(488,218),Point(563,218),Point(563,182),Point(488,182),
@@ -57,7 +59,7 @@ def drawRoom(win):
                          Point(113,291),Point(113,327),Point(38,327),Point(38,363),Point(0,363))
     obstacle13.setFill("Blue")
     
-    obstacle14 = Rectangle(Point(263,72),Point(338,109))
+    obstacle14 = Circle(Point(300,91),13)
     obstacle14.setFill("Green")
     
     obstacle15 = Circle(Point(469,127),13)
@@ -103,6 +105,7 @@ def drawRoom(win):
     block24.setFill("Gray")
     block25.setFill("Gray")
 
+    #drawing out the room
     obstacle1.draw(win)
     obstacle2.draw(win)
     obstacle4.draw(win)
@@ -149,7 +152,8 @@ def drawRoom(win):
 
 def Puzzle():
     win = GraphWin("Maze",550,550)
-    
+
+    #drawing out the game platform
     line1 = Line(Point(50,0),Point(50,550))
     line2 = Line(Point(100,0),Point(100,550))
     line3 = Line(Point(150,0),Point(150,550))
@@ -192,7 +196,17 @@ def Puzzle():
     line19.draw(win)
     line20.draw(win)
 
-    done = False
+    #Instructions:
+    box = Rectangle(Point(0,400),Point(550,500))
+    box.setFill("White")
+    message = Text(Point(275,450),"Click to boxes in the right order to unlock the door (you have 49 clicks for 49 spots).")
+    box.draw(win)
+    message.draw(win)
+    win.getClick()
+
+    #The answer to the puzzle is the path through the room
+    
+    #gets and stores the location of each of the players clicks
     locations = []
     for i in range(49):
         location = win.getMouse()
@@ -200,9 +214,9 @@ def Puzzle():
         point.setFill("Red")
         point.draw(win)
         locations.append(location)
-        
+
+    #checks and stores all of the correct spots
     good_spots = []
-    
     if 500 < locations[0].getX() < 550 and 0 < locations[0].getY() < 50:
         good_spots.append(True)
     if 500 < locations[1].getX() < 550 and 50 < locations[1].getY() < 100:
@@ -302,10 +316,19 @@ def Puzzle():
     if 0 < locations[48].getX() < 50 and 0 < locations[48].getY() < 550:
         good_spots.append(True)
             
+    #If all of the spots were correct then you win
     if len(good_spots) == 49:
         box = Rectangle(Point(0,400),Point(550,500))
         box.setFill("White")
         message = Text(Point(275,450),"Correct! \nThe door opens and a piece of a sword falls \nfrom where it was wedged in the frame.")
+        box.draw(win)
+        message.draw(win)
+        win.getClick()
+        win.close()
+    else:
+        box = Rectangle(Point(0,425),Point(550,475))
+        box.setFill("White")
+        message = Text(Point(275,450),"Wrong, you lose.")
         box.draw(win)
         message.draw(win)
         win.getClick()
