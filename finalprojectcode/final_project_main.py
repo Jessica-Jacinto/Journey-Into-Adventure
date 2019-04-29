@@ -8,6 +8,7 @@ from graphics import *
 
 
 def main():
+    go()
     win = GraphWin("Console",1000, 800)
     levelOne(win)
     letsPlay()
