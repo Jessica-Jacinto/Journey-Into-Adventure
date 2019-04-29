@@ -221,6 +221,7 @@ def go():
     win.getKey
     first_page.undraw()
     Story2()
+    win.close()
     
 
 
