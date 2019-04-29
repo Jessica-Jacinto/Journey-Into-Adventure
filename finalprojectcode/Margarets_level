@@ -73,6 +73,8 @@ def my_level():
     outro()
     sword = Shard_1(100,200)
     sword.draw(win)
+    win.getKey()
+    win.close()
 my_level()
     
     
