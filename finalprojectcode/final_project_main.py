@@ -11,6 +11,7 @@ def main():
     win = GraphWin("Console",1000, 800)
     levelOne(win)
     letsPlay()
+    this_level()
     throneRoom(win)
     
    
