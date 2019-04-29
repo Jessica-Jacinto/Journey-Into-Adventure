@@ -1,26 +1,15 @@
 from graphics import *
+from sword_shard1 import *
+#set up perameters for the window
 WIDTH = 1000
 HEIGHT = 700
+
+#set up perameters for the table
 
 left_table = 350
 right_table = 650
 
-class Shard1:
-    def __init__(self, x, y):
-        self.shard_point1 = Point(x, y)
-        self.shard_x = x
-        self.shard_y = y
-        self.shard_point2 = Point(x + 20, y - 5)
-        self.shard_point3 = Point(x + 30, y +5)
-        self.shard_point4 = Point(x + 5, y + 10)
-        self.shard = Polygon(self.shard_point1, self.shard_point2, self.shard_point3, self.shard_point4)
-    def draw(self, win):
-        shard = Polygon(self.shard_point1, self.shard_point2, self.shard_point3, self.shard_point4)
-        self.shard.setFill("Gray")
-        self.shard.draw(win)
-        
-    def undraw(self):
-        self.shard.undraw()
+
 
 class CupGame:
     def __init__(self, win, position):
@@ -32,15 +21,14 @@ class CupGame:
         self.move3 = False
         self.win = False
 
-        
+ #create cups       
         p1 = Point(position.getX()-125, position.getY())
         p2 = Point(position.getX()-75, position.getY())
         p3 = Point(position.getX()-80, position.getY()-50)
         p4 = Point(position.getX()-120, position.getY()-50)
         self.cup1 = Polygon(p1, p2, p3, p4)
         self.cup1.setFill("blue")
-        self.top_line1 = Line(p3, p4)
-        self.brim1 = Line(p1, p2)
+
 
 
         p1 = Point(position.getX()-25, position.getY())
@@ -49,8 +37,7 @@ class CupGame:
         p4 = Point(position.getX()-20, position.getY()-50)
         self.cup2 = Polygon(p1, p2, p3, p4)
         self.cup2.setFill("blue")
-        self.top_line2 = Line(p3, p4)
-        self.brim2 = Line(p1, p2)
+ 
 
         p1 = Point(position.getX()+75, position.getY())
         p2 = Point(position.getX()+125, position.getY())
@@ -58,10 +45,9 @@ class CupGame:
         p4 = Point(position.getX()+80, position.getY()-50)
         self.cup3 = Polygon(p1, p2, p3, p4)
         self.cup3.setFill("blue")
-        self.top_line1 = Line(p3, p4)
-        self.brim3 = Line(p1, p2)
 
 
+#create dots for selection
         p1 = Point(position.getX()-110, position.getY()-30)
         p2 = Point(position.getX()-90, position.getY()-10)
         self.sel1 = Oval(p1, p2)
@@ -79,7 +65,7 @@ class CupGame:
 
 
 
-
+#create pearls
         p1 = Point(position.getX(), position.getY()-295)
         p2 = Point(position.getX()+20, position.getY()-275)
         self.head_pearl = Oval(p1, p2)
@@ -95,7 +81,7 @@ class CupGame:
         
 
 
-
+#create rectangles that act as bounding boxes
         p1 = Point(position.getX()-125, position.getY()-60)
         p2 = Point(position.getX()-75, position.getY())
         self.rec1 = Rectangle(p1, p2)
@@ -114,7 +100,7 @@ class CupGame:
 
         
 
-
+#draw relevant things
     def draw(self, win):
         self.pearl.draw(win)
         self.head_pearl.draw(win)
@@ -122,6 +108,7 @@ class CupGame:
         self.cup2.draw(win)
         self.cup3.draw(win)
 
+#undraws everything so the game can restart
     def undrawCupGame(self, win):
         self.head_pearl.undraw()
         self.pearl.undraw()
@@ -131,7 +118,7 @@ class CupGame:
     
     
                 
-
+#select either a cup or the hidden pearl
     def select(self, win):
         while True:
             mouse = win.getMouse()
@@ -155,6 +142,7 @@ class CupGame:
                 self.head_pearl.setFill("red")
                 break
 
+#move cups side to side fast
     def moveFast(self, win):
         self.pearl.undraw()
         self.dx1 = -20
@@ -199,25 +187,8 @@ class CupGame:
 
           
         
-    def moveSide(self, win):
-        self.pearl.undraw()
-        self.body.move(self.dx, 0)
-        self.top.move(self.dx, 0)
-        self.bottom.move(self.dx, 0)
-        
-        if self.right.getP1().getX() <= left_table:
-            self.dx = -self.dx
 
-        if self.right.getP2().getX() >= right_table:
-            self.dx = -self.dx
-
-        if self.center.getP1().getX() <= left_table:
-            self.dx = -self.dx
-
-        if self.center.getP2().getX() >= right_table:
-            self.dx = -self.dx
-
-
+#move a cup up and down
     def moveUpDown(self, win):
         self.dy = -.5
         if self.move1 == True:
@@ -267,24 +238,10 @@ class CupGame:
                     self.move3 = False
                     self.sel3.undraw()
 
-    def npcMoveUpDown(self, win):
-        self.body.move(0, self.dy)
-        self.top.move(0, self.dy)
-        self.bottom.move(0, self.dy)
-        self.select.move(0, self.dy)
-
-        if self.top.getP1().getY() <= self.position.getY()-100:
-            self.dy = -self.dy
-
-        if self.bottom.getP2().getY() >= self.position.getY()+1:
-            self.dy = 0
-            self.move_ud = False
-            self.select.undraw()
 
 
-
-
-def main():
+#mechanics of the game
+def letsPlay():
     win = GraphWin("Cups", WIDTH, HEIGHT)
 
     background = Image(Point(500, 350), "dungeon_back.gif")
@@ -355,25 +312,46 @@ def main():
                     dialogue.setSize(20)
                     dialogue.draw(win)
 
-                    shard = Shard1(500, 600)
+                    shard = Shard_1(500, 550)
                     shard.draw(win)
                     play = False
                     
                 else:
                     dialogue = Text(Point (500, 600), text_list[5])
                     dialogue.draw(win)
+                    text.close()
                     
-                unanswered = True
-                while unanswered == True:
-                    player_input = win.getKey().lower()
-                    
-                    if player_input == "y":
-                        unanswered = False
+                    unanswered = True
+                    while unanswered == True:
+                        player_input = win.getKey().lower()
+                        
+                        if player_input == "y":
+                            unanswered = False
 
-                if player_input == "y":
-                    dialogue.undraw()
-                    dialogue.undraw()
-                    cup.undrawCupGame(win)
+                    if player_input == "y":
+                        dialogue.undraw()
+                        dialogue.undraw()
+                        cup.undrawCupGame(win)
+
+    win.getKey()
+    win.close()
+                
+                    
+            
+        
+
+
+                 
+            
+        
+
+
+
+
+
+
+
+
                 
                     
             
@@ -381,7 +359,6 @@ def main():
 
 
 
-main()
 
 
 
