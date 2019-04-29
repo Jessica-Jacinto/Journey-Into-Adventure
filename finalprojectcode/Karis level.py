@@ -343,6 +343,7 @@ def main():
     drawRoom(win)
     tom.draw(win)
 
+    #moving the character and checking to see if the end of the level was reached
     while truth == True:
         tom.moveKarisLevel(6,6,win)
         if 5 < tom.getX() < 13 and ( 363 < tom.getY()+1.5 < 400 ):
