@@ -1,5 +1,6 @@
 from graphics import *
 from levelintro import *
+# creating background
 class Grass:
     def __init__(self,win):
         self.grass =Rectangle(Point(0,400), Point(1000,500))
@@ -95,6 +96,7 @@ class Cow:
 
           
     def draw(self,win):
+        # draw a cow
         self.back_leg.draw(win)
         self.front_leg.draw(win)
         self.body.draw(win)
@@ -109,7 +111,7 @@ class Cow:
         self.spot.draw(win)
         self.spot2.draw(win)
         self.spot3.draw(win)
- 
+# resposes to tell user if they did it right or not 
 class goodResponse:
     def __init__(self,win):
         self.text_box = Text(Point(300,60), 100)
@@ -131,7 +133,8 @@ class badResponse:
         self.text_box2.draw(win)
     def undraw(self):
         self.text_box2.undraw()
-  
+ # for each limb, checks if the points they clicked are close enough to the original
+# allows them to undo and redo untill they get it right
 def backLeg():        
     p1 = win.getMouse()
     p2 = win.getMouse()
