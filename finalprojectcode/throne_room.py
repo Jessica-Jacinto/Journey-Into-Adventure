@@ -1,5 +1,5 @@
 from graphics import *
-from final_project_person_class import *
+from Final_project_person_class import *
 def throneRoom(win):
     throne_room = Image(Point(500, 320), "throne_room.gif")
     throne_room.draw(win)
