@@ -33,6 +33,8 @@ class Person:
         p1 = Point(position.getX(), position.getY()+50)
         p2 = Point(position.getX(), position.getY()+90)
         self.crotch = Line(p1,p2)
+        
+        self.inventory = []
 
         #face
 ##        p1 = Point(position.getX()+9, position.getY()-53)
@@ -403,7 +405,9 @@ class Cutie(Person):
 class Mini(Person):
     def __init__(self, name, position, win):
         #super().__init__(name, position, win)
-
+        
+        self.inventory = []
+        
         #head
         p1 = Point(position.getX()+12, position.getY()-25)
         p2 = Point(position.getX()-12, position.getY()-5)
@@ -501,6 +505,8 @@ class bittyBro(Person):
     def __init__(self, name, position, win):
         self.position = position
 
+        self.inventory = []
+        
         #head
         p1 = Point(position.getX()-5, position.getY()-7)
         p2 = Point(position.getX()+5, position.getY()-15)
@@ -870,6 +876,7 @@ class bittyBro(Person):
                     msg.undraw()
                 if 360 < self.arms.getCenter().getY()+1.5 < 366 and ( 113 self.arms.getCenter().getX() < 150 ):
                     msg = Text(Point(300,350), "A group of whippersnappers! You yell at them for loitering but they just laugh in your face. Ouch.")
+                    
                     msg.draw(win)
                     win.getMouse()
                     msg.undraw()
@@ -887,8 +894,14 @@ class bittyBro(Person):
         if key == "b" :
             if 345 < self.arms.getCenter().getX() < 351 and ( 291 < self.arms.getCenter().getY()+1.5 < 327 ):
                 msg = Text(Point(300,350), "Yes there sure is a bee there! Would you like to pet it? (y/n)")
+                msg.draw(win)
                 if key == "y":
-                    msg = Text(Point(300,350),"You corner the bee inside to bush and give it a nice little pat, but suddenly you see something shiny behind it. \n It's a can of shaving cream! You pick it up and the bee stings you. \nOuch!")
+                    message = Text(Point(300,350),"You corner the bee inside to bush and give it a nice little pat, but suddenly you see something shiny behind it. \n It's a can of shaving cream! You pick it up and the bee stings you. \nOuch!")
+                    message.draw(win)
+                    self.inventory.append("Shaving Cream")
+                    win.getMouse()
+                    message.undraw()
+                msg.undraw()
 
 class miniMime(bittyBro):
     def __init__(self, name, position, win):
@@ -908,23 +921,3 @@ class theRock(bittyBro):
     def draw(self,win):
         super().draw(win)
         self.shirt.undraw()
-                
-def main():
-    bose = True
-    win = GraphWin("WALL",600,400)
-    thisguy = Player("Tony", Point(400,200),win)
-    dood = Person("Bro",Point(100,100), win)
-    oops = King("King Shirtbain",Point(200,300),win)
-    #who = NPC("Um",Point(200,300),win)
-    wow = Cutie("Janis",Point(250,100),win)
-    wow.draw(win)
-    oops.draw(win)
-    dood.draw(win)
-    thisguy.draw(win)
-    while bose == True:
-        dood.move(10,10,win)
-        thisguy.move(6,6,win)
-        wow.move(7,7,win)
-        oops.move(5,5,win)
-
-#main()
