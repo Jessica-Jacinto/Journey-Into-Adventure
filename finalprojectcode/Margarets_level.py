@@ -78,7 +78,7 @@ def my_level():
     text_box7.draw(win)
     win.getKey()
     win.close()
-my_level()
+
     
 
 
