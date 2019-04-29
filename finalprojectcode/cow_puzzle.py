@@ -818,5 +818,3 @@ def cow_level():
     spot()
     spot2()
     spot3()
-
-
