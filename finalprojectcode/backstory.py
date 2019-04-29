@@ -222,6 +222,7 @@ def go():
     first_page.undraw()
     Story2()
     win.close()
+go()
     
 
 
