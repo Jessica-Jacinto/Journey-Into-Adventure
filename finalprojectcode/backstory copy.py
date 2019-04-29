@@ -213,7 +213,7 @@ def Story2():
 
 
 
-def main():
+def go():
     BackGround()
     Title()
     first_page = Story(win)
@@ -223,4 +223,4 @@ def main():
     Story2()
     
 
-main()
+
