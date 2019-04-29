@@ -188,6 +188,7 @@ class Player(Person):
         self.shirt.undraw()
         
     def move( self , dx, dy, win):
+        #moving the whole person by +/- dy or dx when the right key is pressed
         key = win.getKey()
         if key == "d":
             self.hat.move( dx, 0)
@@ -460,6 +461,7 @@ class Mini(Person):
 ##        self.lpupil.draw(win)
 ##        self.mouth.draw(win)
     def move( self , dx, dy, win):
+        #moving the whole person by +/- dy or dx when the right key is pressed
         key = win.getKey()
         if key == "d":
             self.head.move( dx, 0 )
@@ -504,8 +506,6 @@ class Mini(Person):
 class bittyBro(Person):
     def __init__(self, name, position, win):
         self.position = position
-
-        self.inventory = []
         
         #head
         p1 = Point(position.getX()-5, position.getY()-7)
@@ -555,6 +555,7 @@ class bittyBro(Person):
 
     def move( self , dx, dy, win ):
         key = win.getKey()
+        #moving the whole person by +/- dy or dx when the right key is pressed
         if key == "d":
             self.head.move( dx, 0 )
             self.arms.move( dx, 0 )
@@ -594,6 +595,8 @@ class bittyBro(Person):
     
     def moveKarisLevel( self , dx, dy, win ):
         key = win.getKey()
+        #Kari's level has a lot of interactions so it requires a special move function to account for all the objects
+        #If the player tries to go through an obstacle or wall it stops them by returning none instead of moving the character
         if key == "d":
             if 25 < self.arms.getCenter().getX() < 31 and ( 36 < self.arms.getCenter().getY()+1.5 < 145 ):
                 if 25 < self.arms.getCenter().getX() < 31 and ( 72 < self.arms.getCenter().getY()+1.5 < 109 ):
@@ -911,9 +914,13 @@ class bittyBro(Person):
                     win.getMouse()
                     message.undraw()
                 msg.undraw()
-                
-                
+    def getX(self):
+        return self.arms.getCenter().getX()
+    def getY(self):
+        return self.arms.getCenter().getY()
+
 class miniMime(bittyBro):
+    #class for an obstacle in Kari's level
     def __init__(self, name, position, win):
         super().__init__(name,position,win)
         self.arms.setFill("DarkSlateGray")
@@ -923,6 +930,7 @@ class miniMime(bittyBro):
         self.shirt.undraw()
 
 class theRock(bittyBro):
+    #class for an obstacle in Kari's level
     def __init__(self, name, position, win):
         super().__init__(name,position,win)
         self.arms.setFill("Gray")
