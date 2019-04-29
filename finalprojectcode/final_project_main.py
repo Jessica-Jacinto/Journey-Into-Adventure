@@ -4,7 +4,7 @@ from throne_room import *
 from Margarets_level import *
 from backstory import *
 from graphics import *
-
+from Karis_level import *
 
 
 def main():
@@ -14,6 +14,7 @@ def main():
     letsPlay()
     this_level()
     throneRoom(win)
+    karis_level()
     
    
 main()
