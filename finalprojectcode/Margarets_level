@@ -64,7 +64,7 @@ class Shard_1:
     def undraw(self):
         self.shard.undraw()
         
-def my_level():
+def this_level():
     
     intro()
     win.getKey()
@@ -75,7 +75,7 @@ def my_level():
     sword.draw(win)
     win.getKey()
     win.close()
-my_level()
+this_level()
     
     
 
