@@ -701,8 +701,8 @@ class bittyBro(Person):
                     win.getMouse()
                     msg.undraw()
                 return None
-            elif 232 <= self.arms.getCenter().getX() <= 2338 and ( 36 < self.arms.getCenter().getY()+1.5 < 255 ):
-                if 232 <= self.arms.getCenter().getX() <= 338 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
+            elif 232 <= self.arms.getCenter().getX() <= 238 and ( 36 < self.arms.getCenter().getY()+1.5 < 255 ):
+                if 232 <= self.arms.getCenter().getX() <= 238 and ( 145 < self.arms.getCenter().getY()+1.5 < 182 ):
                     msg = Text(Point(300,350), "It's a crate filled with bee sting ointment.")
                     msg.draw(win)
                     win.getMouse()
